@@ -1,68 +1,49 @@
 /*
 ---- importes utilizados ----
 */
-import { LinearGradient } from 'expo-linear-gradient'
-import React from 'react'
-import { Button } from 'react-native-elements'
+import React, { useState } from 'react'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import TabBar from './components/TabBar'
+import ProfileNavigator from './stack/ProfileNavigator'
+import GratisNavigator from './stack/GratisNavegatior'
+import MensajeNavigator from './stack/MensajeNavigator'
+import PremiumNavigator from './stack/PremiumNavegation'
 
-//obtencion de tamaño de la ventana
-const width = Dimensions.get('window').width
-const height = Dimensions.get('window').height
+//instanciacion de menu inferior
+const Tab = createBottomTabNavigator()
 
 /*
----- vista de inicio ----
+---- menu inferior ----
 */
-const Inicio = ({ navigation }) => {
+const TabNavigator = ({ navigation, route }) => {
 	return (
-		<View>
-			<Image
-				source={require('../img/mujer.png')}
-				style={{ width: width, height: height, zIndex: -1, position: 'absolute' }}
+		<Tab.Navigator
+			tabBar={props => {
+				return <TabBar {...props} />
+			}}
+		>
+			<Tab.Screen
+				name='Gratis'
+				component={GratisNavigator}
+				initialParams={{ icon: 'home', navigation }}
 			/>
-			<Image
-				source={require('../img/logo(AP){mini}.svg')}
-				style={{
-					height: '100px',
-					height: '100px',
-					marginTop: '80px',
-				}}
-				resizeMode='stretch'
+			<Tab.Screen
+				name='Premium'
+				component={PremiumNavigator}
+				initialParams={{ icon: 'staro', navigation }}
 			/>
-
-			<LinearGradient
-				colors={['#E84B1990', '#FF050590']}
-				style={{
-					marginTop: '60px',
-					borderRadius: 20,
-					width: '200px',
-					height: '50px',
-					margin: 'auto',
-				}}
-			>
-				<Button
-					title='Inicio'
-					buttonStyle={{ backgroundColor: 'rgba(0,0,0,0)' }}
-					onPress={() => console.log('hi')}
-				/>
-			</LinearGradient>
-			<LinearGradient
-				colors={['#E84B1990', '#FF050590']}
-				style={{
-					marginTop: '30px',
-					borderRadius: 20,
-					width: '200px',
-					height: '50px',
-					margin: 'auto',
-				}}
-			>
-				<Button
-					title='registro'
-					buttonStyle={{ backgroundColor: 'rgba(0,0,0,0)' }}
-					onPress={() => navigation.navigate('registro')}
-				/>
-			</LinearGradient>
-		</View>
+			<Tab.Screen
+				name='Mensaje'
+				component={MensajeNavigator}
+				initialParams={{ icon: 'message1', navigation }}
+			/>
+			<Tab.Screen
+				name='Cuenta'
+				component={ProfileNavigator}
+				initialParams={{ icon: 'user', navigation }}
+			/>
+		</Tab.Navigator>
 	)
 }
 
-export default Inicio
+export default TabNavigator

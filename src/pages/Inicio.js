@@ -9,24 +9,34 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Colors } from 'react-native-paper'
 
 //obtencion de tamaño de la ventana
-const width = Dimensions.get('window').width
-const height = Dimensions.get('window').height
 
 /*
 ---- vista de inicio ----
 */
 const Inicio = ({ navigation }) => {
-	return <View></View>
+	return (
+		<View>
+			<TouchableOpacity style={styles.btn} onPress={console.log('hola')}>
+				<Text>Inicio</Text>
+			</TouchableOpacity>
+			<TouchableOpacity
+				style={styles.btn}
+				onPress={() => navigation.navigate('registro')}
+			>
+				<Text>Registro</Text>
+			</TouchableOpacity>
+		</View>
+	)
 }
 const styles = StyleSheet.create({
 	btn: {
-		height: 10,
+		margin: 25,
 		position: 'relative',
 		display: 'flex',
 	},
 	img: {
-		width: width / 2,
-		height: height / 2,
+		width: 50,
+		height: 25,
 		backgroundColor: Colors.green100,
 	},
 })

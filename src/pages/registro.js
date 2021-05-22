@@ -1,13 +1,20 @@
 import React, { useState } from 'react'
-import { Button } from 'react-native-elements'
+//import { Button } from 'react-native-elements'
 import { Colors } from 'react-native-paper'
-import { SafeAreaView, StyleSheet, TextInput } from 'react-native'
+import {
+	SafeAreaView,
+	StyleSheet,
+	Text,
+	TextInput,
+	TouchableOpacity,
+	View,
+} from 'react-native'
 
 const Registro = ({ navigation }) => {
-	const [nombre, setNombre] = useState('')
-	const [correo, setCorreo] = useState('')
-	/* 	const [contraseña, setContraseña] = react.useState('escribe una contraseña')
-	const [contraseñaDos, setContraseñaDos] = react.useState('confirma la contraseña') */
+	const [nombre, setNombre] = useState('escriba el nombre')
+	const [correo, setCorreo] = useState('escriba el correo')
+	/*const [contraseña, setContraseña] = react.useState('escribe una contraseña')
+	const [contraseñaDos, setContraseñaDos] = react.useState('confirma la contraseña')*/
 
 	return (
 		<SafeAreaView>
@@ -25,17 +32,16 @@ const Registro = ({ navigation }) => {
 			/>
 			{/* 	<TextInput style={style.input} /> */}
 			{/*boton provisional para cambiar depues de registro */}
-			<Button
-				title='registro'
-				buttonStyle={{ backgroundColor: 'rgba(0,0,0,100)' }}
-				onPress={() => navigation.navigate('menu')}
-			/>
+			<TouchableOpacity onPress={() => navigation.navigate('menu')}>
+				<Text> registro </Text>
+			</TouchableOpacity>
 		</SafeAreaView>
 	)
 }
+
 const styles = StyleSheet.create({
 	input: {
-		color: Colors.amber100,
+		color: Colors.black,
 	},
 })
 export default Registro

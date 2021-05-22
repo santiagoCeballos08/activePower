@@ -10,6 +10,7 @@ import ModoPremium from '../pages/ModoPremium'
 import CalculaMasa from '../pages/CalcularMasa'
 import CrearRutina from '../pages/CrearRutina'
 import BuscarUsuario from '../pages/BuscarUsuario'
+import { Text, View } from 'react-native'
 
 //instanciacion de menu tipo hamburguesa
 const Drawer = createDrawerNavigator()
@@ -18,9 +19,8 @@ const Drawer = createDrawerNavigator()
 ---- renderizado de menu ----
 */
 const MenuHamburguesa = () => (
-	<Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+	<Drawer.Navigator>
 		<Drawer.Screen name='Principal' component={TabNavigator}></Drawer.Screen>
-
 		<Drawer.Screen name='ModoPremium' component={ModoPremium}></Drawer.Screen>
 		<Drawer.Screen name='CalculaMasa' component={CalculaMasa}></Drawer.Screen>
 		<Drawer.Screen name='CrearRutina' component={CrearRutina}></Drawer.Screen>
@@ -30,3 +30,5 @@ const MenuHamburguesa = () => (
 )
 
 export default MenuHamburguesa
+
+/**/

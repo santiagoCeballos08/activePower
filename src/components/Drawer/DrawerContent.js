@@ -22,49 +22,7 @@ const DrawerContent = props => {
 	}
 	return (
 		<View>
-			<DrawerContentScrollView {...props}>
-				<View>
-					<Text style={styles.title}>Active Power</Text>
-				</View>
-				<Drawer.Section>
-					<Drawer.Item
-						label='Modo Premium'
-						icon={({ color, size }) => (
-							<FontAwesome name='diamond' size={size} color={color} />
-						)}
-						onPress={() => props.navigation.navigate('ModoPremium')}
-					></Drawer.Item>
-					<Drawer.Item
-						label='Calcula tu masa'
-						icon={({ color, size }) => (
-							<AntDesign name='calculator' size={size} color={color} />
-						)}
-						onPress={() => props.navigation.navigate('CalculaMasa')}
-					/>
-					<Drawer.Item
-						label='Crear rutina'
-						icon={({ color, size }) => (
-							<MaterialCommunityIcons name='human-handsup' size={24} color='black' />
-						)}
-						onPress={() => props.navigation.navigate('CrearRutina')}
-					/>
-					<Drawer.Item
-						label='Buscar usuario'
-						icon={({ color, size }) => (
-							<MaterialCommunityIcons
-								name='account-search-outline'
-								size={24}
-								color='black'
-							/>
-						)}
-						onPress={() => props.navigation.navigate('BuscarUsuario')}
-					/>
-					<Drawer.Item
-						label='inicio con gvallos'
-						onPress={() => props.navigation.navigate('Inicio')}
-					/>
-				</Drawer.Section>
-			</DrawerContentScrollView>
+			<Text style={styles.title}>Active Power</Text>
 		</View>
 	)
 }
@@ -75,8 +33,8 @@ const styles = StyleSheet.create({
 		fontFamily: 'Oswald',
 		fontWeight: '500',
 		margin: 'auto',
-		marginTop: '45px',
-		marginBottom: '45px',
+		marginTop: '45',
+		marginBottom: '45',
 		color: '#FF8F09',
 	},
 	item: {
@@ -88,3 +46,5 @@ const styles = StyleSheet.create({
 })
 
 export default DrawerContent
+
+/**/
