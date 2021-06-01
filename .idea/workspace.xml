@@ -5,30 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4599c53e-76b3-4eac-a532-8636511bbe4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TabNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TabNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Drawer/DrawerContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Drawer/DrawerContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Drawer/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Drawer/Nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeaderStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeaderStack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InfoRutina.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InfoRutina.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MenuHamburguesa.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuHamburguesa.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tab.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TabBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TabBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-ExtraLight.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-SemiBold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Gratis.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Gratis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Info.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Inicio.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Inicio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/registro.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/registro.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stack/GratisNavegatior.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stack/GratisNavegatior.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stack/InicioNavegation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stack/InicioNavegation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stack/MensajeNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stack/MensajeNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stack/PremiumNavegation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stack/PremiumNavegation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

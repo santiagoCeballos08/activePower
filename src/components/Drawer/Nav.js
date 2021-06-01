@@ -6,21 +6,12 @@ import React, { useState } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { Colors, IconButton } from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens'
-import * as Icono from '@expo/vector-icons'
-import * as Font from 'expo-font'
+import Icon from '../Icon'
 
 /*
 ----- modificacion de la barra superior de la navegacion ----
 */
 const Nav = ({ navigation, title }) => {
-	Font.loadAsync({
-		'FontAwesome5Free-Solid': {
-			uri: '@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome5Free-Solid.ttf',
-		},
-		anticon: {
-			uri: '@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Anticon.ttf',
-		},
-	})
 	/*
 	----- cabecera modificada -----
 	*/
@@ -59,9 +50,7 @@ const Nav = ({ navigation, title }) => {
 			return (
 				<IconButton
 					style={styles.icon}
-					icon={() => (
-						<Icono.FontAwesome5 name='bars' size={24} color={Colors.amber500} />
-					)}
+					icon={() => <Icon name='menu' size={24} color={Colors.amber500} />}
 					onPress={() => {
 						nav.toggleDrawer()
 					}}
@@ -77,7 +66,7 @@ const Nav = ({ navigation, title }) => {
 		return (
 			<IconButton
 				onPress={onPress}
-				icon={() => <Icono.AntDesign name='left' size={24} color={Colors.amber500} />}
+				icon={() => <Icon name='circle-left' size={24} color={Colors.amber500} />}
 				style={styles.icon}
 			></IconButton>
 		)

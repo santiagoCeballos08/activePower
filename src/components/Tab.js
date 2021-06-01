@@ -3,6 +3,7 @@
 */
 import React from 'react'
 import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
+import Icon from './Icon'
 //import { AntDesign } from '@expo/vector-icons'
 
 //AntDesign.loadFont()
@@ -13,6 +14,7 @@ import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
 const Tab = ({ tab, icon, onPress, color }) => {
 	return (
 		<TouchableOpacity style={style.container} onPress={onPress}>
+			<Icon name={icon} size={18} color={color} />
 			<Text style={{ color }}>{tab.name}</Text>
 		</TouchableOpacity>
 	)

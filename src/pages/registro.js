@@ -49,21 +49,21 @@ const Registro = ({ navigation }) => {
 					placeholder='nombre'
 				/>
 				<InputRegistro
-					icon='user'
+					icon='mail3'
 					title='Correo electronico'
 					value={correo}
 					onChange={setCorreo}
 					placeholder='Correo'
 				/>
 				<InputRegistro
-					icon='user'
+					icon='lock'
 					title='Ingresa una Contraseña'
 					value={contraseña}
 					onChange={setContraseña}
 					placeholder='Contraseña'
 				/>
 				<InputRegistro
-					icon='user'
+					icon='lock'
 					title='Repita la contraseña'
 					value={repContraseña}
 					onChange={setRepContraseña}

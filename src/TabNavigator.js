@@ -8,8 +8,6 @@ import ProfileNavigator from './stack/ProfileNavigator'
 import GratisNavigator from './stack/GratisNavegatior'
 // import MensajeNavigator from './stack/MensajeNavigator'
 // import PremiumNavigator from './stack/PremiumNavegation'
-// import { View } from 'react-native'
-import * as Font from 'expo-font'
 import { NavigationContainer } from '@react-navigation/native'
 
 //instanciacion de menu inferior
@@ -19,12 +17,6 @@ const Tab = createBottomTabNavigator()
 ---- menu inferior ----
 */
 const TabNavigator = ({ navigation, route }) => {
-	Font.loadAsync({
-		'FontAwesome5Free-Solid': {
-			uri: '@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome5Free-Solid.ttf',
-		},
-	})
-
 	return (
 		<NavigationContainer independent={true}>
 			<Tab.Navigator tabBar={props => <TabBar {...props} />}>
