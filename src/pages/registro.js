@@ -2,46 +2,128 @@ import React, { useState } from 'react'
 //import { Button } from 'react-native-elements'
 import { Colors } from 'react-native-paper'
 import {
+	Dimensions,
 	SafeAreaView,
 	StyleSheet,
 	Text,
-	TextInput,
 	TouchableOpacity,
 	View,
+	TextInput,
 } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
+import { InputRegistro } from '../components/InputRegistro'
+import Icon from '../components/Icon'
+
+const { width, height } = Dimensions.get('window')
 
 const Registro = ({ navigation }) => {
-	const [nombre, setNombre] = useState('escriba el nombre')
-	const [correo, setCorreo] = useState('escriba el correo')
-	/*const [contraseña, setContraseña] = react.useState('escribe una contraseña')
-	const [contraseñaDos, setContraseñaDos] = react.useState('confirma la contraseña')*/
+	//vamos a meter fontawesome
+
+	const [colores, setColores] = useState({
+		btn1: '#e84b1960',
+		btn2: '#ff050560',
+		bg1: '#D9387890',
+		bg2: '#FFAA0090',
+	})
+	const [nombre, setNombre] = useState('')
+	const [correo, setCorreo] = useState('')
+	const [repContraseña, setRepContraseña] = useState('')
+	const [contraseña, setContraseña] = useState('')
 
 	return (
-		<SafeAreaView>
-			<TextInput
-				style={styles.input}
-				onChangeText={setNombre}
-				value={nombre}
-				placeholder='ingrese su nombre'
-			/>
-			<TextInput
-				style={styles.input}
-				onChangetext={setCorreo}
-				value={correo}
-				placeholder='ingrese un correo'
-			/>
-			{/* 	<TextInput style={style.input} /> */}
-			{/*boton provisional para cambiar depues de registro */}
+		<SafeAreaView style={styles.container}>
+			<LinearGradient
+				colors={[colores.bg1, colores.bg2]}
+				style={styles.fondo}
+				start={{ x: 0, y: 1 }}
+				end={{ x: 1, y: 0 }}
+			></LinearGradient>
+			<Text style={styles.title}> Registrate con </Text>
+			<Text style={styles.title2}>Active Power</Text>
+			<View style={styles.containerInput}>
+				<InputRegistro
+					icon='user'
+					title='Nombre de usuario'
+					value={nombre}
+					onChange={setNombre}
+					placeholder='nombre'
+				/>
+				<InputRegistro
+					icon='user'
+					title='Correo electronico'
+					value={correo}
+					onChange={setCorreo}
+					placeholder='Correo'
+				/>
+				<InputRegistro
+					icon='user'
+					title='Ingresa una Contraseña'
+					value={contraseña}
+					onChange={setContraseña}
+					placeholder='Contraseña'
+				/>
+				<InputRegistro
+					icon='user'
+					title='Repita la contraseña'
+					value={repContraseña}
+					onChange={setRepContraseña}
+					placeholder='contraseña'
+				/>
+			</View>
 			<TouchableOpacity onPress={() => navigation.navigate('menu')}>
-				<Text> registro </Text>
+				<LinearGradient colors={[colores.btn1, colores.btn2]} style={styles.boton}>
+					<Text style={styles.Text}>Registrar usuario</Text>
+				</LinearGradient>
 			</TouchableOpacity>
 		</SafeAreaView>
 	)
 }
 
 const styles = StyleSheet.create({
-	input: {
-		color: Colors.black,
+	title2: {
+		position: 'absolute',
+		fontWeight: 'bold',
+		fontSize: 30,
+		top: 100,
+		color: '#ffff',
+	},
+
+	title: {
+		fontWeight: 'bold',
+		position: 'absolute',
+		fontSize: 30,
+		top: 70,
+		color: '#ffff',
+	},
+
+	Text: {
+		fontSize: 22,
+		color: '#fff',
+	},
+
+	boton: {
+		marginTop: 10,
+		width: 250,
+		height: 60,
+		borderRadius: 50,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+
+	fondo: {
+		position: 'absolute',
+		left: 0,
+		right: 0,
+		top: 0,
+		height: height,
+	},
+
+	container: {
+		flex: 1,
+		alignItems: 'center',
+	},
+	containerInput: {
+		marginTop: width / 2.5,
 	},
 })
 export default Registro

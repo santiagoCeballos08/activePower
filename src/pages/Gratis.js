@@ -3,7 +3,7 @@
 */
 import React, { useState, useEffect } from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
-//import Lista from '../components/Lista'
+import Lista from '../components/Lista'
 import MenuHamburguesa from '../components/MenuHamburguesa'
 import firebase from '../../database/firebase'
 /*
@@ -18,6 +18,7 @@ const Gratis = ({ navigation, route }) => {
 			<Text id='text' style={Styles.text}>
 				{route.params.mensaje[numero]}
 			</Text>
+			<Lista navigation={navigation} data={route.params.data} />
 		</View>
 	)
 }

@@ -13,7 +13,7 @@ import { Colors } from 'react-native-paper'
 const Info = ({ navigation, route }) => {
 	const data = route.params.data
 	return (
-		<ScrollView>
+		<ScrollView style={styles.scroll}>
 			<View>
 				<Text style={styles.title}>{data.nombre}</Text>
 				<View style={styles.container}>
@@ -32,7 +32,7 @@ const Info = ({ navigation, route }) => {
 						shouldPlay={false}
 						isLooping={false}
 						useNativeControls
-						style={{ width: '90%', height: '70%', margin: 'auto' }}
+						style={{ width: 90, height: 70 }}
 					/>
 				</View>
 				<View style={styles.expContainer}>
@@ -47,10 +47,9 @@ const Info = ({ navigation, route }) => {
 //estilos de info
 const styles = StyleSheet.create({
 	container: {
-		marginTop: '20px',
-		width: '60%',
-		height: '150px',
-		margin: 'auto',
+		marginTop: 20,
+		width: 60,
+		height: 150,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,
@@ -61,9 +60,8 @@ const styles = StyleSheet.create({
 		elevation: 8,
 	},
 	containerVideo: {
-		marginTop: '30px',
-		width: '90%',
-		margin: 'auto',
+		marginTop: 30,
+		width: 90,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,
@@ -74,10 +72,9 @@ const styles = StyleSheet.create({
 		elevation: 8,
 	},
 	expContainer: {
-		marginTop: '30px',
-		width: '90%',
-		height: '300px',
-		margin: 'auto',
+		marginTop: 30,
+		width: 90,
+		height: 300,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,
@@ -88,20 +85,23 @@ const styles = StyleSheet.create({
 		elevation: 8,
 	},
 	img: {
-		width: '100%',
-		height: '100%',
+		width: 100,
+		height: 100,
 	},
 	exp: {
-		marginTop: '5px',
+		marginTop: 5,
 		textAlign: 'center',
 		fontWeight: 'bold',
 		fontSize: 20,
 	},
 	title: {
-		marginTop: '5px',
+		marginTop: 5,
 		textAlign: 'center',
 		fontWeight: 'bold',
 		fontSize: 20,
+	},
+	scroll: {
+		marginHorizontal: 'auto',
 	},
 })
 

@@ -4,21 +4,22 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
-//import ListaInfo from './ListaInfo'
+import ListaInfo from './ListaInfo'
 
 /*
 ---- vista de informacion de la rutina
 */
 const InfoRutina = ({ navigation, route }) => {
 	return (
-		<ScrollView>
+		<ScrollView style={styles.scroll}>
 			<View>
 				<Text style={styles.title}>{route.params.data.nombre}</Text>
+				<ListaInfo data={datas} navigation={navigation} />
 			</View>
 		</ScrollView>
 	)
 }
-//<ListaInfo data={datas} navigation={navigation} />
+
 //datos de prueba para mostrar rutinas
 const datas = [
 	{
@@ -37,13 +38,17 @@ const datas = [
 //estilos de la vista
 const styles = StyleSheet.create({
 	img: {
-		width: '200px',
-		height: '200px',
+		width: 200,
+		height: 200,
 	},
 	title: {
 		textAlign: 'center',
 		fontSize: 20,
 		fontWeight: 'bold',
+	},
+
+	scroll: {
+		marginHorizontal: 'auto',
 	},
 })
 

@@ -58,7 +58,6 @@ const style = StyleSheet.create({
 	wrapper: {
 		position: 'absolute',
 		bottom: 20,
-		width,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},

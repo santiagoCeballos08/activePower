@@ -1,13 +1,14 @@
 /*
 ---- importes utilizados ----
 */
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Gratis from '../pages/Gratis'
 import InfoRutina from '../components/InfoRutina'
 import Info from '../pages/Info'
 import firebase from '../../database/firebase'
-//import HeaderStack from '../components/HeaderStack'
+import { View, Text } from 'react-native'
+import HeaderStack from '../components/HeaderStack'
 
 //instanciacion de stack
 const Stack = createStackNavigator()
@@ -16,10 +17,9 @@ const Stack = createStackNavigator()
 ---- stack gratis ----
 */
 const GratisNavigator = ({ navigation, route }) => {
-	const nav = route.params.navigation
 	const [mensaje, setMensaje] = useState()
 	const [data, setData] = useState()
-	const [showMenu, setShowMenu] = useState(false)
+	//const [showMenu, setShowMenu] = useState(false)
 
 	//listar mensajes de la db
 	const mensajes = []
@@ -48,6 +48,7 @@ const GratisNavigator = ({ navigation, route }) => {
 					name='Gratis'
 					options={{
 						title: 'Rutinas gratuitas',
+						header: HeaderStack,
 					}}
 				/>
 				<Stack.Screen
@@ -55,6 +56,7 @@ const GratisNavigator = ({ navigation, route }) => {
 					name='InfoRutina'
 					options={{
 						title: 'InfoRutina',
+						header: HeaderStack,
 					}}
 				/>
 				<Stack.Screen
@@ -62,12 +64,17 @@ const GratisNavigator = ({ navigation, route }) => {
 					name='Info'
 					options={{
 						title: 'Info',
+						header: HeaderStack,
 					}}
 				/>
 			</Stack.Navigator>
+
+			// <View>
+			// 	<Text> soy un holita</Text>
+			// </View>
 		)
 	} else {
-		return <View />
+		return <View></View>
 	}
 }
 export default GratisNavigator

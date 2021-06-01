@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4599c53e-76b3-4eac-a532-8636511bbe4a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TabNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TabNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Drawer/DrawerContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Drawer/DrawerContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Drawer/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Drawer/Nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeaderStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeaderStack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InfoRutina.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InfoRutina.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MenuHamburguesa.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuHamburguesa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TabBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TabBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/Oswald-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Gratis.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Gratis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Inicio.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Inicio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/registro.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/registro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stack/GratisNavegatior.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stack/GratisNavegatior.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stack/InicioNavegation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stack/InicioNavegation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stack/MensajeNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stack/MensajeNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stack/PremiumNavegation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stack/PremiumNavegation.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1tLu2t8YOoPqR9wyLqLhbjRjXaj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4599c53e-76b3-4eac-a532-8636511bbe4a" name="Default Changelist" comment="" />
+      <created>1622560488100</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622560488100</updated>
+    </task>
+    <servers />
+  </component>
+</project>
