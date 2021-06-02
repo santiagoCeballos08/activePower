@@ -14,7 +14,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
 import Icon from '../components/Icon'
 
-const { width, height } = Dimensions.get('window')
+const { width, height } = Dimensions.get('screen')
 
 const Registro = ({ navigation }) => {
 	//vamos a meter fontawesome
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	containerInput: {
-		marginTop: width / 2.5,
+		marginTop: width / 2,
 	},
 })
 export default Registro

@@ -1,20 +1,10 @@
 import React, { useState } from 'react'
-import * as Icono from '@expo/vector-icons'
-import * as Font from 'expo-font'
+import Icon from './Icon'
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 import { IconButton, Colors } from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens'
 
 const HeaderStack = props => {
-	Font.loadAsync({
-		FontAwesome: {
-			uri: '@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome.ttf',
-		},
-		anticon: {
-			uri: '@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Anticon.ttf',
-		},
-	})
-
 	const CustomHeader = ({ scene, previous, navigation }) => {
 		const { options } = scene.descriptor
 		const title =
@@ -53,12 +43,6 @@ const HeaderStack = props => {
 						onChangeText={text => setValue(text)}
 						value={value}
 					/>
-					<Icono.AntDesign
-						style={styles.iconSearch}
-						name='search1'
-						size={20}
-						color='black'
-					/>
 				</View>
 			</ScreenContainer>
 		)
@@ -71,9 +55,7 @@ const HeaderStack = props => {
 			return (
 				<IconButton
 					style={styles.icon}
-					icon={() => (
-						<Icono.FontAwesome5 name='bars' size={24} color={Colors.amber500} />
-					)}
+					icon={() => <Icon name='menu' size={24} color={Colors.amber500} />}
 					onPress={() => {
 						navigator.toggleDrawer()
 					}}
@@ -86,7 +68,7 @@ const HeaderStack = props => {
 		return (
 			<IconButton
 				onPress={onPress}
-				icon={() => <AntDesign name='left' size={24} color={Colors.amber500} />}
+				icon={() => <Icon name='circle-left' size={24} color={Colors.amber500} />}
 				style={styles.icon}
 			></IconButton>
 		)
@@ -99,6 +81,7 @@ const styles = StyleSheet.create({
 	bar: {
 		height: 50,
 		position: 'relative',
+		marginTop: 25,
 		display: 'flex',
 	},
 	text: {
