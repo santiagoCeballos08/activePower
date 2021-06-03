@@ -5,7 +5,6 @@ import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-han
 
 /*funcion vista de info rutina*/
 const ListaInfo = ({ navigation, premium, data }) => {
-	console.log(premium)
 	const keyExtractor = (item, index) => index.toString()
 
 	//render item

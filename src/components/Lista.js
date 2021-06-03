@@ -2,9 +2,16 @@
 ---- importes utilizados ----
 */
 import React from 'react'
+import { Dimensions } from 'react-native'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { Colors } from 'react-native-paper'
 
+const { width, height } = Dimensions.get('screen')
+
+/*
+---- renderizado de la lista de la vista Gratis
+*/
 const Lista = ({ navigation, premium, data }) => {
 	const keyExtractor = (item, index) => index.toString()
 
@@ -21,11 +28,14 @@ const Lista = ({ navigation, premium, data }) => {
 					}}
 				>
 					<Image source={{ uri: item.img }} style={styles.img} />
+					<Selector item={item} />
 				</View>
 			</TouchableOpacity>
 		)
 	}
-	//					<Selector item={item} />
+	/*
+	---- detector de en que vista se esta renderizando entre premium y gratis ----
+	*/
 	const Selector = ({ item }) => {
 		if (premium) {
 			return (
@@ -43,29 +53,22 @@ const Lista = ({ navigation, premium, data }) => {
 			)
 		}
 	}
-	return (
-		<ScrollView style={styles.scroll}>
-			<View style={styles.container}>
-				<FlatList keyExtractor={keyExtractor} data={data} renderItem={renderItem} />
-			</View>
-		</ScrollView>
-	)
+
+	return <FlatList keyExtractor={keyExtractor} data={data} renderItem={renderItem} />
 }
 
+//estilos de la lista
 const styles = StyleSheet.create({
-	scroll: {
-		flex: 1,
-	},
 	container: {
 		marginTop: 10,
 		flex: 1,
-		justifyContent: 'center',
 	},
 	card: {
-		height: 120,
-		width: 90,
+		height: height / 10,
+		width: width - 20,
 		marginHorizontal: 'auto',
-		marginTop: 0,
+		marginTop: 10,
+		marginLeft: 10,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,
@@ -82,12 +85,13 @@ const styles = StyleSheet.create({
 	},
 	titleGratis: {
 		marginTop: 5,
-		marginLeft: 200,
+		marginLeft: 150,
 		fontWeight: 'bold',
 		fontSize: 20,
 	},
 	desGratis: {
 		marginTop: 10,
+		width: width / 2,
 		marginLeft: 150,
 	},
 	titlePremium: {

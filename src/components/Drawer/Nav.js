@@ -3,7 +3,7 @@
 */
 
 import React, { useState } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, StatusBar } from 'react-native'
 import { Colors, IconButton } from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens'
 import Icon from '../Icon'
@@ -29,7 +29,6 @@ const Nav = ({ navigation, title }) => {
 	----- cabecera ----
 	*/
 	const Header = ({ title, leftButton, navigator }) => {
-		const [value, setValue] = useState('')
 		return (
 			<ScreenContainer style={styles.bar}>
 				<View>
@@ -97,23 +96,6 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		left: 0,
 		top: 7,
-	},
-	inputContainer: {
-		position: 'absolute',
-		top: 7,
-		right: 5,
-	},
-	textInput: {
-		borderWidth: 1,
-		height: 30,
-		width: 80,
-		borderRadius: 25,
-		textAlign: 'center',
-	},
-	iconSearch: {
-		position: 'absolute',
-		right: 10,
-		top: 3,
 	},
 })
 

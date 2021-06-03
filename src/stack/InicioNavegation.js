@@ -6,11 +6,12 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 import Inicio from '../pages/Inicio'
 import Registro from '../pages/registro'
-// import MenuHamburguesa from '../components/MenuHamburguesa'
 // import Gratis from '../pages/Gratis'
 // import GratisNavigator from './GratisNavegatior'
-// import MenuHamburguesa from '../components/MenuHamburguesa'
+// import TabNavigator from '../TabNavigator'
+import MenuHamburguesa from '../components/MenuHamburguesa'
 import TabNavigator from '../TabNavigator'
+import GratisNavigator from './GratisNavegatior'
 
 //instanciacion de stack
 const Stack = createStackNavigator()
@@ -43,7 +44,7 @@ const InicioNavigator = props => {
 				}}
 			/>
 			<Stack.Screen
-				component={TabNavigator}
+				component={MenuHamburguesa}
 				name='menu'
 				options={{
 					title: 'menu',

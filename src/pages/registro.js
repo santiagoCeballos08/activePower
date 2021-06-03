@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 //import { Button } from 'react-native-elements'
-import { Colors } from 'react-native-paper'
+// import { Colors } from 'react-native-paper'
 import {
 	Dimensions,
 	SafeAreaView,
@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
-import Icon from '../components/Icon'
+// import Icon from '../components/Icon'
 
 const { width, height } = Dimensions.get('screen')
 
@@ -75,6 +75,13 @@ const Registro = ({ navigation }) => {
 					<Text style={styles.Text}>Registrar usuario</Text>
 				</LinearGradient>
 			</TouchableOpacity>
+
+			<View>
+				<Text>¿ya tienes cuenta?</Text>
+				<TouchableOpacity>
+					<Text>inicia sesion</Text>
+				</TouchableOpacity>
+			</View>
 		</SafeAreaView>
 	)
 }

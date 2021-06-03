@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Icon from './Icon'
-import { StyleSheet, Text, View, TextInput } from 'react-native'
+import { StyleSheet, Text, View, TextInput, StatusBar } from 'react-native'
 import { IconButton, Colors } from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens'
 
@@ -36,13 +36,6 @@ const HeaderStack = props => {
 				<View>
 					<Text style={styles.text}>{title}</Text>
 					<SelectorBtn leftBtn={leftButton} navigator={navigator} />
-				</View>
-				<View style={styles.inputContainer}>
-					<TextInput
-						style={styles.textInput}
-						onChangeText={text => setValue(text)}
-						value={value}
-					/>
 				</View>
 			</ScreenContainer>
 		)
@@ -81,7 +74,7 @@ const styles = StyleSheet.create({
 	bar: {
 		height: 50,
 		position: 'relative',
-		marginTop: 25,
+		marginTop: StatusBar.currentHeight,
 		display: 'flex',
 	},
 	text: {

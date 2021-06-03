@@ -10,7 +10,6 @@ import { Input } from 'react-native-elements'
 const { width, height } = Dimensions.get('window')
 
 export const InputRegistro = ({ icon, title, value, onChange, placeholder }) => {
-	console.log(value)
 	return (
 		<View style={styles.container}>
 			<Input

@@ -18,7 +18,7 @@ const Gratis = ({ navigation, route }) => {
 			<Text id='text' style={Styles.text}>
 				{route.params.mensaje[numero]}
 			</Text>
-			<Lista navigation={navigation} data={route.params.data} />
+			<Lista navigation={navigation} data={route.params.data} premium={false} />
 		</View>
 	)
 }

@@ -19,7 +19,7 @@ const Drawer = createDrawerNavigator()
 */
 const MenuHamburguesa = () => (
 	<NavigationContainer independent={true}>
-		<Drawer.Navigator drawerContent={props => <DrawerContent {...prosp} />}>
+		<Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
 			<Drawer.Screen name='Principal' component={TabNavigator}></Drawer.Screen>
 			<Drawer.Screen name='ModoPremium' component={ModoPremium}></Drawer.Screen>
 			<Drawer.Screen name='CalculaMasa' component={CalculaMasa}></Drawer.Screen>
