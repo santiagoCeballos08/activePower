@@ -2,10 +2,13 @@
 ---- importes utilizados ----
 */
 import React, { useState, useEffect } from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, View, ScrollView } from 'react-native'
 import Lista from '../components/Lista'
 import MenuHamburguesa from '../components/MenuHamburguesa'
 import firebase from '../../database/firebase'
+import { Dimensions } from 'react-native'
+
+const { width, height } = Dimensions.get('screen')
 /*
 ---- vista de rutinas gratis ----
 */
@@ -15,10 +18,13 @@ const Gratis = ({ navigation, route }) => {
 	let numero = Math.floor(Math.random() * (max - min) + min)
 	return (
 		<View>
-			<Text id='text' style={Styles.text}>
-				{route.params.mensaje[numero]}
-			</Text>
-			<Lista navigation={navigation} data={route.params.data} premium={false} />
+			<ScrollView style={{ height: height - 150 }}>
+				<Text id='text' style={Styles.text}>
+					{route.params.mensaje[numero]}
+				</Text>
+
+				<Lista navigation={navigation} data={route.params.data} premium={false} />
+			</ScrollView>
 		</View>
 	)
 }

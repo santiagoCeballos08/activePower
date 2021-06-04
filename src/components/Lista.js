@@ -1,7 +1,7 @@
 /*
 ---- importes utilizados ----
 */
-import React from 'react'
+import React, { memo, useEffect } from 'react'
 import { Dimensions } from 'react-native'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
@@ -12,51 +12,35 @@ const { width, height } = Dimensions.get('screen')
 /*
 ---- renderizado de la lista de la vista Gratis
 */
-const Lista = ({ navigation, premium, data }) => {
-	const keyExtractor = (item, index) => index.toString()
+const Lista = memo(({ navigation, premium, data }) => {
+	return (
+		<View>
+			{data.map(data => {
+				return (
+					<RenderItem img={data.img} des={data.des} name={data.nombre} key={data.id} />
+				)
+			})}
+		</View>
+	)
+})
 
-	/*
+/*
 	---- visualizacion de item
-	*/
-	const renderItem = ({ item }) => {
-		return (
-			<TouchableOpacity>
-				<View
-					style={styles.card}
-					onTouchStart={() => {
-						navigation.navigate('InfoRutina', { data: item })
-					}}
-				>
-					<Image source={{ uri: item.img }} style={styles.img} />
-					<Selector item={item} />
-				</View>
-			</TouchableOpacity>
-		)
-	}
-	/*
-	---- detector de en que vista se esta renderizando entre premium y gratis ----
-	*/
-	const Selector = ({ item }) => {
-		if (premium) {
-			return (
+*/
+const RenderItem = ({ img, name, des }) => {
+	return (
+		<TouchableOpacity onPress={() => console.log('click')}>
+			<View style={styles.card}>
+				<Image source={{ uri: img }} style={styles.img} />
 				<View>
-					<Text style={styles.titlePremium}>{item.nombre}</Text>
-					<Text style={styles.desPremium}>{item.des}</Text>
+					<Text style={styles.titleGratis}>{name}</Text>
+					<Text style={styles.desGratis}>{des}</Text>
 				</View>
-			)
-		} else {
-			return (
-				<View>
-					<Text style={styles.titleGratis}>{item.nombre}</Text>
-					<Text style={styles.desGratis}>{item.des}</Text>
-				</View>
-			)
-		}
-	}
-
-	return <FlatList keyExtractor={keyExtractor} data={data} renderItem={renderItem} />
+			</View>
+		</TouchableOpacity>
+	)
 }
-
+// navigation.navigate('InfoRutina', { data: item })
 //estilos de la lista
 const styles = StyleSheet.create({
 	container: {
@@ -66,9 +50,11 @@ const styles = StyleSheet.create({
 	card: {
 		height: height / 10,
 		width: width - 20,
-		marginHorizontal: 'auto',
 		marginTop: 10,
 		marginLeft: 10,
+		marginBottom: 40,
+		position: 'relative',
+		elevation: 2,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,
@@ -77,8 +63,6 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
 		elevation: 8,
-		marginBottom: 40,
-		position: 'relative',
 	},
 	img: {
 		borderRadius: 25,
@@ -91,7 +75,7 @@ const styles = StyleSheet.create({
 	},
 	desGratis: {
 		marginTop: 10,
-		width: width / 2,
+		width: 150,
 		marginLeft: 150,
 	},
 	titlePremium: {

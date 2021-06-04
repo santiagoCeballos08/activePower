@@ -62,6 +62,7 @@ const style = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	container: {
+		marginLeft: 20,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		backgroundColor: '#eee',
