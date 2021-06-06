@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-//import { Button } from 'react-native-elements'
-// import { Colors } from 'react-native-paper'
 import {
 	Dimensions,
 	SafeAreaView,
@@ -12,13 +10,9 @@ import {
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
-// import Icon from '../components/Icon'
 
 const { width, height } = Dimensions.get('screen')
-
-const Registro = ({ navigation }) => {
-	//vamos a meter fontawesome
-
+const inicioSecion = () => {
 	const [colores, setColores] = useState({
 		btn1: '#e84b1960',
 		btn2: '#ff050560',
@@ -26,20 +20,19 @@ const Registro = ({ navigation }) => {
 		bg2: '#FFAA0090',
 	})
 	const [nombre, setNombre] = useState('')
-	const [correo, setCorreo] = useState('')
 	const [contraseña, setContraseña] = useState('')
-	const [repContraseña, setRepContraseña] = useState('')
-
 	return (
-		<SafeAreaView style={styles.container}>
+		<View style={styles.container}>
+			{/* fondo del inicio */}
 			<LinearGradient
 				colors={[colores.bg1, colores.bg2]}
 				style={styles.fondo}
 				start={{ x: 0, y: 1 }}
 				end={{ x: 1, y: 0 }}
 			></LinearGradient>
-			<Text style={styles.title}> Registrate con </Text>
+			<Text style={styles.title}> inicia tu sesión </Text>
 			<Text style={styles.title2}>Active Power</Text>
+
 			<View style={styles.containerInput}>
 				<InputRegistro
 					icon='user'
@@ -49,44 +42,57 @@ const Registro = ({ navigation }) => {
 					placeholder='nombre'
 				/>
 				<InputRegistro
-					icon='mail3'
-					title='Correo electronico'
-					value={correo}
-					onChange={setCorreo}
-					placeholder='Correo'
-				/>
-				<InputRegistro
 					icon='lock'
 					title='Ingresa una Contraseña'
 					value={contraseña}
 					onChange={setContraseña}
 					placeholder='Contraseña'
 				/>
-				<InputRegistro
-					icon='lock'
-					title='Repita la contraseña'
-					value={repContraseña}
-					onChange={setRepContraseña}
-					placeholder='contraseña'
-				/>
 			</View>
+
 			<TouchableOpacity onPress={() => navigation.navigate('menu')}>
 				<LinearGradient colors={[colores.btn1, colores.btn2]} style={styles.boton}>
-					<Text style={styles.Text}>Registrar usuario</Text>
+					<Text style={styles.Text}>iniciar sesion</Text>
 				</LinearGradient>
 			</TouchableOpacity>
 
-			<View>
-				<Text style={styles.text1}>¿ya tienes cuenta?</Text>
-				<TouchableOpacity>
-					<Text style={styles.text2}>inicia sesion</Text>
-				</TouchableOpacity>
-			</View>
-		</SafeAreaView>
+			<Text style={styles.text1}>¿no tienes cuenta?</Text>
+			<TouchableOpacity onPress={console.log('registro')}>
+				<Text style={styles.text2}>registrate</Text>
+			</TouchableOpacity>
+		</View>
 	)
 }
 
 const styles = StyleSheet.create({
+	container: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		flex: 1,
+	},
+	containerInput: {
+		marginTop: width / 5,
+	},
+	fondo: {
+		position: 'absolute',
+		left: 0,
+		right: 0,
+		top: 0,
+		height: height,
+	},
+	Text: {
+		fontSize: 22,
+		color: '#fff',
+	},
+
+	boton: {
+		marginTop: 10,
+		width: 250,
+		height: 60,
+		borderRadius: 50,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
 	title2: {
 		position: 'absolute',
 		fontWeight: 'bold',
@@ -103,35 +109,6 @@ const styles = StyleSheet.create({
 		color: '#ffff',
 	},
 
-	Text: {
-		fontSize: 22,
-		color: '#fff',
-	},
-
-	boton: {
-		marginTop: 10,
-		width: 250,
-		height: 60,
-		borderRadius: 50,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-
-	fondo: {
-		position: 'absolute',
-		left: 0,
-		right: 0,
-		top: 0,
-		height: height,
-	},
-
-	container: {
-		flex: 1,
-		alignItems: 'center',
-	},
-	containerInput: {
-		marginTop: width / 2,
-	},
 	text1: {
 		color: '#fff',
 		marginLeft: 230,
@@ -143,4 +120,5 @@ const styles = StyleSheet.create({
 		marginLeft: 280,
 	},
 })
-export default Registro
+
+export default inicioSecion

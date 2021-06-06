@@ -12,6 +12,7 @@ import Registro from '../pages/registro'
 import MenuHamburguesa from '../components/MenuHamburguesa'
 import TabNavigator from '../TabNavigator'
 import GratisNavigator from './GratisNavegatior'
+import inicioSesion from '../pages/InicioSesion'
 
 //instanciacion de stack
 const Stack = createStackNavigator()
@@ -48,6 +49,15 @@ const InicioNavigator = props => {
 				name='menu'
 				options={{
 					title: 'menu',
+					header: CustomHeader,
+				}}
+			/>
+
+			<Stack.Screen
+				component={inicioSesion}
+				name='InicioSesion'
+				options={{
+					title: 'InicioSesion',
 					header: CustomHeader,
 				}}
 			/>
