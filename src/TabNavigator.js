@@ -23,9 +23,14 @@ const TabNavigator = ({ navigation, route }) => {
 				<Tab.Screen
 					name='Gratis'
 					component={GratisNavigator}
-					initialParams={{ icon: 'home', navigation }}
+					initialParams={{ icon: 'home', drawer: navigation }}
 				/>
-				<Tab.Screen
+			</Tab.Navigator>
+		</NavigationContainer>
+	)
+}
+{
+	/* <Tab.Screen
 					name='Premium'
 					component={PremiumNavigator}
 					initialParams={{ icon: 'star-empty', navigation }}
@@ -40,22 +45,6 @@ const TabNavigator = ({ navigation, route }) => {
 					name='Cuenta'
 					component={ProfileNavigator}
 					initialParams={{ icon: 'user', navigation }}
-				/>
-			</Tab.Navigator>
-		</NavigationContainer>
-	)
-}
-
-{
-	/* <Tab.Screen
-					name='premium'
-					component={GratisNavigator}
-					initialParams={{ icon: 'home', navigation }}
-				/>
-				<Tab.Screen
-					name='Mensaje'
-					component={GratisNavigator}
-					initialParams={{ icon: 'message1', navigation }}
 				/> */
 }
 

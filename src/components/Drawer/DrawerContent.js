@@ -4,7 +4,7 @@
 import { DrawerContentScrollView } from '@react-navigation/drawer'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { Drawer } from 'react-native-paper'
+import { Drawer, Colors } from 'react-native-paper'
 import Icon from '../Icon'
 
 /*
@@ -20,13 +20,13 @@ const DrawerContent = props => {
 				<Drawer.Section>
 					<Drawer.Item
 						label='Modo Premium'
-						icon={({ color, size }) => <Icon name='diamonds' size={size} color={color} />}
+						icon={({ color, size }) => <Icon name='diamonds' size={size} color='black' />}
 						onPress={() => props.navigation.navigate('ModoPremium')}
 					></Drawer.Item>
 					<Drawer.Item
 						label='Calcula tu masa'
 						icon={({ color, size }) => (
-							<Icon name='pagebreak' size={size} color={color} />
+							<Icon name='pagebreak' size={size} color='black' />
 						)}
 						onPress={() => props.navigation.navigate('CalculaMasa')}
 					/>
@@ -50,14 +50,14 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 25,
 		fontWeight: '500',
-		marginTop: 45,
-		marginBottom: 45,
 		color: '#FF8F09',
 	},
 	item: {
 		color: 'red',
 		fontSize: 40,
 		fontWeight: '500',
+		width: 200,
+		backgroundColor: Colors.green200,
 	},
 })
 

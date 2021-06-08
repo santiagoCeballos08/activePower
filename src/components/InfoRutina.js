@@ -1,25 +1,30 @@
 /*
 ---- importes utilizados ----
 */
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Dimensions } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
+import { Colors } from 'react-native-paper'
 import ListaInfo from './ListaInfo'
 
+const { width, height } = Dimensions.get('screen')
 /*
 ---- vista de informacion de la rutina
 */
 const InfoRutina = ({ navigation, route }) => {
+	useEffect(() => {
+		console.log('render infoRutina')
+	})
 	return (
-		<ScrollView style={styles.scroll}>
-			<View>
-				<Text style={styles.title}>{route.params.data.nombre}</Text>
-				<ListaInfo data={datas} navigation={navigation} />
-			</View>
-		</ScrollView>
+		<View>
+			<Text style={styles.title}>soy un holita</Text>
+		</View>
 	)
 }
-
+{
+	/* <ListaInfo data={datas} navigation={navigation} /> */
+}
 //datos de prueba para mostrar rutinas
 const datas = [
 	{
@@ -42,13 +47,11 @@ const styles = StyleSheet.create({
 		height: 200,
 	},
 	title: {
+		backgroundColor: Colors.red200,
 		textAlign: 'center',
+		color: Colors.black,
 		fontSize: 20,
 		fontWeight: 'bold',
-	},
-
-	scroll: {
-		marginHorizontal: 'auto',
 	},
 })
 

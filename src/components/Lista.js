@@ -5,7 +5,6 @@ import React, { memo, useEffect } from 'react'
 import { Dimensions } from 'react-native'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
-import { Colors } from 'react-native-paper'
 
 const { width, height } = Dimensions.get('screen')
 
@@ -17,7 +16,13 @@ const Lista = memo(({ navigation, premium, data }) => {
 		<View>
 			{data.map(data => {
 				return (
-					<RenderItem img={data.img} des={data.des} name={data.nombre} key={data.id} />
+					<RenderItem
+						img={data.img}
+						des={data.des}
+						name={data.nombre}
+						key={data.id}
+						navigation={navigation}
+					/>
 				)
 			})}
 		</View>
@@ -27,9 +32,15 @@ const Lista = memo(({ navigation, premium, data }) => {
 /*
 	---- visualizacion de item
 */
-const RenderItem = ({ img, name, des }) => {
+const RenderItem = ({ img, des, name, navigation }) => {
 	return (
-		<TouchableOpacity onPress={() => console.log('click')}>
+		<TouchableOpacity
+			onPress={() => {
+				navigation.setParams({ img, des, name })
+				const data = { img, des, name }
+				navigation.navigate('InfoRutina', { data })
+			}}
+		>
 			<View style={styles.card}>
 				<Image source={{ uri: img }} style={styles.img} />
 				<View>

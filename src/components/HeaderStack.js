@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import Icon from './Icon'
 import { StyleSheet, Text, View, TextInput, StatusBar } from 'react-native'
 import { IconButton, Colors } from 'react-native-paper'
@@ -18,42 +18,29 @@ const HeaderStack = props => {
 		return (
 			<Header
 				title={title}
-				leftButton={
-					ruta == 'registro' || ruta == 'login' ? undefined : (
-						<BackBtn onPress={navigation.goBack} />
-					)
-				}
+				leftButton={ruta == 'registro' || ruta == 'login' ? undefined : true}
 				style={options.headerStyle}
-				navigator={navigation}
+				navigation={navigation}
 			/>
 		)
 	}
 
-	const Header = ({ title, leftButton, navigator }) => {
-		const [value, setValue] = useState('')
+	const Header = ({ title, leftButton, navigation }) => {
 		return (
 			<ScreenContainer style={styles.bar}>
 				<View>
 					<Text style={styles.text}>{title}</Text>
-					<SelectorBtn leftBtn={leftButton} navigator={navigator} />
+					<SelectorBtn leftBtn={leftButton} navigation={navigation} />
 				</View>
 			</ScreenContainer>
 		)
 	}
 
-	const SelectorBtn = ({ leftBtn, navigator }) => {
+	const SelectorBtn = ({ leftBtn, navigation }) => {
 		if (leftBtn !== undefined) {
-			return <BackBtn onPress={navigator.goBack} />
+			return <BackBtn onPress={navigation.canGoBack() ? navigation.goBack : undefined} />
 		} else {
-			return (
-				<IconButton
-					style={styles.icon}
-					icon={() => <Icon name='menu' size={24} color={Colors.amber500} />}
-					onPress={() => {
-						navigator.toggleDrawer()
-					}}
-				/>
-			)
+			return <></>
 		}
 	}
 
