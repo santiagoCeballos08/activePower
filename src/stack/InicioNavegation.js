@@ -7,6 +7,12 @@ import { StyleSheet, Text, View, TextInput } from 'react-native'
 import Inicio from '../pages/Inicio'
 import Registro from '../pages/registro'
 import MenuHamburguesa from '../components/MenuHamburguesa'
+<<<<<<< HEAD
+=======
+import TabNavigator from '../TabNavigator'
+import GratisNavigator from './GratisNavegatior'
+import inicioSesion from '../pages/InicioSesion'
+>>>>>>> afa73d26c7c6334ccc053d1751c91bb680542591
 
 //instanciacion de stack
 const Stack = createStackNavigator()
@@ -44,6 +50,15 @@ const InicioNavigator = props => {
 				options={{
 					title: 'menu',
 					headerShown: false,
+				}}
+			/>
+
+			<Stack.Screen
+				component={inicioSesion}
+				name='InicioSesion'
+				options={{
+					title: 'InicioSesion',
+					header: CustomHeader,
 				}}
 			/>
 		</Stack.Navigator>

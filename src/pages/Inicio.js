@@ -22,7 +22,7 @@ const Inicio = ({ navigation }) => {
 			<Image source={require('../img/logoCompleto.png')} style={styles.logo} />
 
 			<View style={styles.container}>
-				<TouchableOpacity>
+				<TouchableOpacity onPress={() => navigation.navigate('InicioSesion')}>
 					<LinearGradient colors={[color1, color2]} style={styles.btn}>
 						<Text style={styles.txt}>inicia session</Text>
 					</LinearGradient>
