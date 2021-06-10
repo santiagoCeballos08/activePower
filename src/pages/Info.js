@@ -3,9 +3,12 @@
 */
 import { Video } from 'expo-av'
 import React from 'react'
+import { Dimensions } from 'react-native'
 import { View, Text, Image, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { Colors } from 'react-native-paper'
+
+const { width, height } = Dimensions.get('window')
 
 /*
 ---- vista de info ----
@@ -15,9 +18,15 @@ const Info = ({ navigation, route }) => {
 	return (
 		<ScrollView style={styles.scroll}>
 			<View>
-				<Text style={styles.title}>{data.nombre}</Text>
+				<Text style={styles.title}>{data.name}</Text>
 				<View style={styles.container}>
-					<Image source={data.img} style={styles.img} resizeMode='stretch' />
+					<Image
+						source={{
+							uri: data.img,
+						}}
+						style={styles.img}
+						resizeMode='stretch'
+					/>
 				</View>
 				<View style={styles.containerVideo}>
 					<Text style={styles.exp}>Explicación por Video</Text>
@@ -48,8 +57,8 @@ const Info = ({ navigation, route }) => {
 const styles = StyleSheet.create({
 	container: {
 		marginTop: 20,
-		width: 60,
-		height: 150,
+		width: width - 5,
+		height: 100,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,
@@ -57,11 +66,11 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
-		elevation: 8,
+		elevation: 1,
 	},
 	containerVideo: {
 		marginTop: 30,
-		width: 90,
+		width: width / 4,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,
@@ -69,7 +78,7 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
-		elevation: 8,
+		elevation: 1,
 	},
 	expContainer: {
 		marginTop: 30,
@@ -82,7 +91,7 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
-		elevation: 8,
+		elevation: 1,
 	},
 	img: {
 		width: 100,

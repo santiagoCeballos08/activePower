@@ -1,46 +1,70 @@
-/*importes */
-import React from 'react'
+/*
+---- importes utilizados ----
+*/
+import React, { memo, useEffect } from 'react'
+import { Dimensions } from 'react-native'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 
-/*funcion vista de info rutina*/
-const ListaInfo = ({ navigation, premium, data }) => {
-	const keyExtractor = (item, index) => index.toString()
+const { width, height } = Dimensions.get('screen')
 
-	//render item
-	const renderItem = ({ item }) => {
-		return (
-			<TouchableOpacity>
-				<View>
-					<Image source={{ uri: item.img }} style={StyleSheet.img} />
-				</View>
-			</TouchableOpacity>
-		)
-	}
-
+/*
+---- renderizado de la lista de la vista Gratis
+*/
+const ListaInfo = memo(({ navigation, data }) => {
 	return (
-		<ScrollView style={styles.scroll}>
-			<View>
-				<FlatList keyExtractor={keyExtractor} data={data} renderItem={renderItem} />
+		<View>
+			{data.map(data => {
+				return (
+					<RenderItem
+						img={data.img}
+						des={data.des}
+						name={data.nombre}
+						key={data.id}
+						navigation={navigation}
+					/>
+				)
+			})}
+		</View>
+	)
+})
+
+/*
+	---- visualizacion de item
+*/
+const RenderItem = ({ img, des, name, navigation }) => {
+	return (
+		<TouchableOpacity
+			onPress={() => {
+				const data = { img, des, name }
+				navigation.navigate('Info', { data })
+			}}
+		>
+			<View style={styles.card}>
+				<Image source={{ uri: img }} style={styles.img} />
+				<View>
+					<Text style={styles.titleGratis}>{name}</Text>
+					<Text style={styles.desGratis}>{des}</Text>
+				</View>
 			</View>
-		</ScrollView>
+		</TouchableOpacity>
 	)
 }
-
+// navigation.navigate('InfoRutina', { data: item })
+//estilos de la lista
 const styles = StyleSheet.create({
 	container: {
 		marginTop: 10,
 		flex: 1,
-		justifyContent: 'center',
-	},
-	scroll: {
-		marginHorizontal: 'auto',
 	},
 	card: {
-		height: 120,
-		width: 90,
-		marginHorizontal: 'auto',
-		marginTop: 0,
+		height: height / 10,
+		width: width - 20,
+		marginTop: 10,
+		marginLeft: 10,
+		marginBottom: 40,
+		position: 'relative',
+		elevation: 2,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,
@@ -48,16 +72,13 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
-		elevation: 8,
-		marginBottom: 40,
-		position: 'relative',
 	},
 	img: {
 		borderRadius: 25,
 	},
 	titleGratis: {
 		marginTop: 5,
-		marginLeft: 200,
+		marginLeft: 150,
 		fontWeight: 'bold',
 		fontSize: 20,
 	},
@@ -77,8 +98,6 @@ const styles = StyleSheet.create({
 	},
 	img: {
 		position: 'absolute',
-		width: 125,
-		height: 95,
 		marginLeft: 5,
 		marginTop: 1,
 		borderRadius: 15,

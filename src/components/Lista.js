@@ -5,6 +5,7 @@ import React, { memo, useEffect } from 'react'
 import { Dimensions } from 'react-native'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { Colors } from 'react-native-paper'
 
 const { width, height } = Dimensions.get('screen')
 
@@ -59,13 +60,14 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	card: {
-		height: height / 10,
+		backgroundColor: Colors.white,
+		height: 110,
 		width: width - 20,
 		marginTop: 10,
 		marginLeft: 10,
-		marginBottom: 40,
+		marginBottom: 25,
 		position: 'relative',
-		elevation: 2,
+		elevation: 8,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,
@@ -73,10 +75,6 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
-		elevation: 8,
-	},
-	img: {
-		borderRadius: 25,
 	},
 	titleGratis: {
 		marginTop: 5,
@@ -104,7 +102,7 @@ const styles = StyleSheet.create({
 		width: 125,
 		height: 95,
 		marginLeft: 5,
-		marginTop: 1,
+		marginTop: 8,
 		borderRadius: 15,
 	},
 })

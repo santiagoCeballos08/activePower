@@ -17,8 +17,6 @@ import { InputRegistro } from '../components/InputRegistro'
 const { width, height } = Dimensions.get('screen')
 
 const Registro = ({ navigation }) => {
-	//vamos a meter fontawesome
-
 	const [colores, setColores] = useState({
 		btn1: '#e84b1960',
 		btn2: '#ff050560',
@@ -52,12 +50,13 @@ const Registro = ({ navigation }) => {
 					icon='mail3'
 					title='Correo electronico'
 					value={correo}
+					ss
 					onChange={setCorreo}
 					placeholder='Correo'
 				/>
 				<InputRegistro
 					icon='lock'
-					title='Ingresa una Contraseña'
+					title='Ingresa la Contraseña'
 					value={contraseña}
 					onChange={setContraseña}
 					placeholder='Contraseña'

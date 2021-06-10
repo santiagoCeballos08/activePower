@@ -13,21 +13,25 @@ const { width, height } = Dimensions.get('screen')
 ---- vista de informacion de la rutina
 */
 const InfoRutina = ({ navigation, route }) => {
-	useEffect(() => {
-		console.log('render infoRutina')
-	})
+	// useEffect(() => {
+	// 	console.log(route.params)
+	// })
+	const { des, img, name } = route.params.data
 	return (
 		<View>
-			<Text style={styles.title}>soy un holita</Text>
+			<Text style={styles.title}>{name}</Text>
 		</View>
 	)
 }
 {
-	/* <ListaInfo data={datas} navigation={navigation} /> */
+	// <ScrollView>
+	// 			<ListaInfo data={datas} navigation={navigation} />
+	// 		</ScrollView>
 }
 //datos de prueba para mostrar rutinas
 const datas = [
 	{
+		id: 1,
 		img: 'https://media.istockphoto.com/photos/african-american-man-doing-push-up-picture-id154370462',
 		nombre: 'Flexión',
 		des: 'reps			series\n5		X		7',
@@ -36,7 +40,8 @@ const datas = [
 	{
 		img: 'https://cdn.aarp.net/content/dam/aarp/health/conditions_treatments/2019/01/1140-group-exercise-streching-esp.jpg',
 		nombre: 'loco',
-		des: 'no hay nada de que hablar pa. ',
+		des: 'reps			series\n5		X		7',
+		id: 2,
 	},
 ]
 
@@ -45,9 +50,11 @@ const styles = StyleSheet.create({
 	img: {
 		width: 200,
 		height: 200,
+		marginLeft: 50,
 	},
 	title: {
-		backgroundColor: Colors.red200,
+		marginTop: 20,
+		marginBottom: 20,
 		textAlign: 'center',
 		color: Colors.black,
 		fontSize: 20,

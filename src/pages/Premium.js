@@ -1,6 +1,8 @@
 import React from 'react'
+import { ColorPropType } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
+import { Colors } from 'react-native-paper'
 import Lista from '../components/Lista'
 
 const Premium = ({ navigation, route }) => {
@@ -27,6 +29,7 @@ const styles = StyleSheet.create({
 		marginHorizontal: 'auto',
 	},
 	container: {
+		backgroundColor: Colors.white,
 		marginTop: 20,
 		width: 90,
 		shadowColor: '#111',
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
-		elevation: 8,
+		elevation: 1,
 	},
 	text: {
 		fontWeight: 'bold',

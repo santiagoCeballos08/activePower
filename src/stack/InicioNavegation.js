@@ -7,7 +7,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native'
 import Inicio from '../pages/Inicio'
 import Registro from '../pages/registro'
 import MenuHamburguesa from '../components/MenuHamburguesa'
-
+import inicioSesion from '../pages/InicioSesion'
 
 //instanciacion de stack
 const Stack = createStackNavigator()

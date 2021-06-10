@@ -14,6 +14,7 @@ import { IconButton, Colors } from 'react-native-paper'
 import Icon from '../components/Icon'
 import { StatusBar } from 'react-native'
 import { StyleSheet } from 'react-native'
+import Left from '../components/left'
 
 //instanciacion de stack
 const Stack = createStackNavigator()
@@ -57,7 +58,6 @@ const GratisNavigator = ({ navigation, route }) => {
 							<IconButton
 								icon={() => <Icon name='menu' size={24} color={Colors.amber500} />}
 								onPress={() => {
-									console.log('soy un holita')
 									route.params.drawer.toggleDrawer()
 								}}
 							/>
@@ -68,14 +68,14 @@ const GratisNavigator = ({ navigation, route }) => {
 					component={InfoRutina}
 					name='InfoRutina'
 					options={{
-						headerTitle: () => <Text style={styles.text}>soy un holita</Text>,
+						headerTitle: () => <Text style={styles.text}>InfoRutina</Text>,
 					}}
 				/>
 				<Stack.Screen
 					component={Info}
 					name='Info'
 					options={{
-						headerTitle: () => <Text style={styles.text}>soy un holita</Text>,
+						headerTitle: () => <Text style={styles.text}>Info del ejercicio</Text>,
 					}}
 				/>
 			</Stack.Navigator>

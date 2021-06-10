@@ -12,7 +12,8 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
 
 const { width, height } = Dimensions.get('screen')
-const inicioSecion = () => {
+
+const inicioSesion = ({ navigation }) => {
 	const [colores, setColores] = useState({
 		btn1: '#e84b1960',
 		btn2: '#ff050560',
@@ -22,7 +23,7 @@ const inicioSecion = () => {
 	const [nombre, setNombre] = useState('')
 	const [contraseña, setContraseña] = useState('')
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 			{/* fondo del inicio */}
 			<LinearGradient
 				colors={[colores.bg1, colores.bg2]}
@@ -43,7 +44,7 @@ const inicioSecion = () => {
 				/>
 				<InputRegistro
 					icon='lock'
-					title='Ingresa una Contraseña'
+					title='Ingresa la Contraseña'
 					value={contraseña}
 					onChange={setContraseña}
 					placeholder='Contraseña'
@@ -56,11 +57,15 @@ const inicioSecion = () => {
 				</LinearGradient>
 			</TouchableOpacity>
 
+			{
+				//todo melitico ps
+			}
+
 			<Text style={styles.text1}>¿no tienes cuenta?</Text>
-			<TouchableOpacity onPress={console.log('registro')}>
+			<TouchableOpacity>
 				<Text style={styles.text2}>registrate</Text>
 			</TouchableOpacity>
-		</View>
+		</SafeAreaView>
 	)
 }
 
@@ -121,4 +126,4 @@ const styles = StyleSheet.create({
 	},
 })
 
-export default inicioSecion
+export default inicioSesion

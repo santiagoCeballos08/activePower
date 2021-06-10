@@ -4,6 +4,9 @@
 import React, { useState } from 'react'
 import { View, StyleSheet, Dimensions } from 'react-native'
 import Tab from './Tab'
+import { LogBox } from 'react-native'
+
+LogBox.ignoreLogs(['Non-serializable values were found in the navigation state'])
 
 //obtencion de tamaño de pantalla
 const { width } = Dimensions.get('screen')
@@ -65,7 +68,7 @@ const style = StyleSheet.create({
 		marginLeft: 20,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		backgroundColor: '#eee',
+		backgroundColor: '#fff',
 		width: 350,
 		borderRadius: 100,
 		elevation: 2,
@@ -76,7 +79,6 @@ const style = StyleSheet.create({
 		},
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
-		elevation: 8,
 	},
 })
 

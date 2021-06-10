@@ -10,7 +10,11 @@ import CalculaMasa from '../pages/CalcularMasa'
 import CrearRutina from '../pages/CrearRutina'
 import BuscarUsuario from '../pages/BuscarUsuario'
 import { NavigationContainer } from '@react-navigation/native'
+import { LogBox } from 'react-native'
 
+LogBox.ignoreLogs([
+	'Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle',
+])
 //instanciacion de menu tipo hamburguesa
 const Drawer = createDrawerNavigator()
 

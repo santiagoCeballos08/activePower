@@ -4,8 +4,6 @@
 import React, { useState, useEffect } from 'react'
 import { Button, StyleSheet, Text, View, ScrollView } from 'react-native'
 import Lista from '../components/Lista'
-import MenuHamburguesa from '../components/MenuHamburguesa'
-import firebase from '../../database/firebase'
 import { Dimensions } from 'react-native'
 
 const { width, height } = Dimensions.get('screen')
@@ -18,7 +16,7 @@ const Gratis = ({ navigation, route }) => {
 	let numero = Math.floor(Math.random() * (max - min) + min)
 	return (
 		<View>
-			<ScrollView style={{ height: height - 150 }}>
+			<ScrollView style={{ height: height - 150, backgroundColor: '#fff' }}>
 				<Text id='text' style={Styles.text}>
 					{route.params.mensaje[numero]}
 				</Text>

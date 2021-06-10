@@ -1,7 +1,7 @@
 /*
 ---- importes utilizados ----
 */
-import React, { useState } from 'react'
+import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import TabBar from './components/TabBar'
 import ProfileNavigator from './stack/ProfileNavigator'
@@ -25,12 +25,8 @@ const TabNavigator = ({ navigation, route }) => {
 					component={GratisNavigator}
 					initialParams={{ icon: 'home', drawer: navigation }}
 				/>
-			</Tab.Navigator>
-		</NavigationContainer>
-	)
-}
-{
-	/* <Tab.Screen
+
+				<Tab.Screen
 					name='Premium'
 					component={PremiumNavigator}
 					initialParams={{ icon: 'star-empty', navigation }}
@@ -45,7 +41,10 @@ const TabNavigator = ({ navigation, route }) => {
 					name='Cuenta'
 					component={ProfileNavigator}
 					initialParams={{ icon: 'user', navigation }}
-				/> */
+				/>
+			</Tab.Navigator>
+		</NavigationContainer>
+	)
 }
 
 export default TabNavigator
