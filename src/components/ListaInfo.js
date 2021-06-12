@@ -1,10 +1,10 @@
 /*
 ---- importes utilizados ----
 */
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 import { Dimensions } from 'react-native'
 import { StyleSheet, Text, View, Image } from 'react-native'
-import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const { width, height } = Dimensions.get('screen')
 
@@ -54,11 +54,13 @@ const RenderItem = ({ img, des, name, navigation }) => {
 //estilos de la lista
 const styles = StyleSheet.create({
 	container: {
+		backgroundColor: '#fff',
 		marginTop: 10,
 		flex: 1,
 	},
 	card: {
-		height: height / 10,
+		backgroundColor: '#fff',
+		height: 110,
 		width: width - 20,
 		marginTop: 10,
 		marginLeft: 10,
@@ -72,9 +74,6 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
-	},
-	img: {
-		borderRadius: 25,
 	},
 	titleGratis: {
 		marginTop: 5,
@@ -99,8 +98,10 @@ const styles = StyleSheet.create({
 	img: {
 		position: 'absolute',
 		marginLeft: 5,
-		marginTop: 1,
+		marginTop: 8,
 		borderRadius: 15,
+		width: 125,
+		height: 95,
 	},
 })
 

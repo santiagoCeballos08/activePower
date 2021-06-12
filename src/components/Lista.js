@@ -14,7 +14,7 @@ const { width, height } = Dimensions.get('screen')
 */
 const Lista = memo(({ navigation, premium, data }) => {
 	return (
-		<View>
+		<View style={styles.view}>
 			{data.map(data => {
 				return (
 					<RenderItem
@@ -55,6 +55,9 @@ const RenderItem = ({ img, des, name, navigation }) => {
 // navigation.navigate('InfoRutina', { data: item })
 //estilos de la lista
 const styles = StyleSheet.create({
+	view: {
+		backgroundColor: '#fff',
+	},
 	container: {
 		marginTop: 10,
 		flex: 1,

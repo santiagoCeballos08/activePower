@@ -20,6 +20,9 @@ const InfoRutina = ({ navigation, route }) => {
 	return (
 		<View>
 			<Text style={styles.title}>{name}</Text>
+			<ScrollView>
+				<ListaInfo data={datas} navigation={navigation} />
+			</ScrollView>
 		</View>
 	)
 }
