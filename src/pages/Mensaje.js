@@ -16,7 +16,7 @@ const Mensaje = ({ navigation, route }) => {
 	)
 }
 
-//datos de prueba
+//datos de prueba h
 const data = [
 	{
 		nombre: 'Daniel Stiven Agudelo',

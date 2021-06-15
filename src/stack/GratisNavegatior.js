@@ -25,7 +25,7 @@ const Stack = createStackNavigator()
 const GratisNavigator = ({ navigation, route }) => {
 	const [mensaje, setMensaje] = useState()
 	const [data, setData] = useState()
-	//const [showMenu, setShowMenu] = useState(false)
+	//const [showMenu, setShowMenu] = useState(false) h
 
 	//listar mensajes de la db
 	const mensajes = []
