@@ -2,13 +2,11 @@
 ---- importes utilizados ----
 */
 import React, { useEffect } from 'react'
-import { Dimensions } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { Colors } from 'react-native-paper'
 import ListaInfo from './ListaInfo'
 
-const { width, height } = Dimensions.get('screen')
 /*
 ---- vista de informacion de la rutina
 */
@@ -18,7 +16,7 @@ const InfoRutina = ({ navigation, route }) => {
 	// })
 	const { des, img, name } = route.params.data
 	return (
-		<View>
+		<View style={{ backgroundColor: '#fff' }}>
 			<Text style={styles.title}>{name}</Text>
 			<ScrollView>
 				<ListaInfo data={datas} navigation={navigation} />
@@ -26,11 +24,7 @@ const InfoRutina = ({ navigation, route }) => {
 		</View>
 	)
 }
-{
-	// <ScrollView>
-	// 			<ListaInfo data={datas} navigation={navigation} />
-	// 		</ScrollView>
-}
+
 //datos de prueba para mostrar rutinas
 const datas = [
 	{
@@ -38,13 +32,32 @@ const datas = [
 		img: 'https://media.istockphoto.com/photos/african-american-man-doing-push-up-picture-id154370462',
 		nombre: 'Flexión',
 		des: 'reps			series\n5		X		7',
-		res: 'cada vez que se extienda por completo los brazos debes botar el aire cuando llegue a bajo',
+		exp: 'Toma aire profundamente y contrae al mismo tiempo la espalda, los glúteos y los omóplatos fijos.',
+		exp2: 'Para un agarre correcto en el press de banca, sujeta la barra a la altura de los hombros Las muñecas se mantienen rectas y las manos tienen que rodear la barra para un agarre firme.',
 	},
 	{
 		img: 'https://cdn.aarp.net/content/dam/aarp/health/conditions_treatments/2019/01/1140-group-exercise-streching-esp.jpg',
 		nombre: 'loco',
 		des: 'reps			series\n5		X		7',
 		id: 2,
+		exp: 'Toma aire profundamente y contrae al mismo tiempo la espalda, los glúteos y los omóplatos fijos.',
+		exp2: 'Para un agarre correcto en el press de banca, sujeta la barra a la altura de los hombros Las muñecas se mantienen rectas y las manos tienen que rodear la barra para un agarre firme.',
+	},
+	{
+		id: 3,
+		img: 'https://media.istockphoto.com/photos/african-american-man-doing-push-up-picture-id154370462',
+		nombre: 'Flexión',
+		des: 'reps			series\n5		X		7',
+		exp: 'Toma aire profundamente y contrae al mismo tiempo la espalda, los glúteos y los omóplatos fijos.',
+		exp2: 'Para un agarre correcto en el press de banca, sujeta la barra a la altura de los hombros Las muñecas se mantienen rectas y las manos tienen que rodear la barra para un agarre firme.',
+	},
+	{
+		img: 'https://cdn.aarp.net/content/dam/aarp/health/conditions_treatments/2019/01/1140-group-exercise-streching-esp.jpg',
+		nombre: 'sentadilla',
+		des: 'reps			series\n5		X		7',
+		id: 4,
+		exp: 'Toma aire profundamente y contrae al mismo tiempo la espalda, los glúteos y los omóplatos fijos.',
+		exp2: 'Para un agarre correcto en el press de banca, sujeta la barra a la altura de los hombros Las muñecas se mantienen rectas y las manos tienen que rodear la barra para un agarre firme.',
 	},
 ]
 

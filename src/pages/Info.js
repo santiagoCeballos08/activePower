@@ -2,7 +2,7 @@
 ---- importes utilizados ----
 */
 import { Video } from 'expo-av'
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import { Dimensions } from 'react-native'
 import { View, Text, Image, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
@@ -15,65 +15,66 @@ const { width, height } = Dimensions.get('window')
 */
 const Info = memo(({ navigation, route }) => {
 	const data = route.params.data
+	// useEffect(() => {
+	// 	console.log(data)
+	// })
 	return (
-		<View style={styles.contenedor}>
-			<View style={styles.container}>
-				<Image
-					source={{
-						uri: data.img,
-					}}
-					style={styles.img}
-					resizeMode='stretch'
-				/>
+		<ScrollView style={{ backgroundColor: Colors.red500, height: height - 500, width }}>
+			<View style={styles.contenedor}>
+				<View style={styles.containerImg}>
+					<Image
+						source={{
+							uri: data.img,
+						}}
+						style={styles.img}
+					/>
+				</View>
+				<View styles={styles.containerVideo}>
+					<Text style={styles.exp}>Explicación por Video</Text>
+					<Video
+						source={{
+							uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+						}}
+						rate={1.0}
+						volume={0.5}
+						isMuted={false}
+						resizeMode='cover'
+						shouldPlay={false}
+						isLooping={false}
+						useNativeControls
+						style={{
+							width: width - 40,
+							height: 200,
+							marginTop: 30,
+							marginBottom: 15,
+							marginLeft: width / 20,
+						}}
+					/>
+				</View>
+				<View style={styles.expContainer}>
+					<Text style={styles.exp}>Como se debe respirar</Text>
+					<Text>{data.exp}</Text>
+					<Text style={styles.exp}>Instrucciones</Text>
+					<Text>{data.exp2}</Text>
+				</View>
 			</View>
-			<View styles={styles.containerVideo}>
-				<Text style={styles.exp}>Explicación por Video</Text>
-				<Video
-					source={{
-						uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
-					}}
-					rate={1.0}
-					volume={0.5}
-					isMuted={false}
-					resizeMode='cover'
-					shouldPlay={false}
-					isLooping={false}
-					useNativeControls
-					style={{
-						width: width - 80,
-						height: 125,
-						marginTop: 30,
-						marginBottom: 15,
-						marginLeft: width / 30,
-					}}
-				/>
-			</View>
-			<View style={styles.expContainer}>
-				<Text style={styles.exp}>Como se debe respirar</Text>
-				<Text>{data.res}</Text>
-			</View>
-		</View>
+		</ScrollView>
 	)
 })
-
-{
-	/*<View style={styles.containerVideo}></View>
-	 */
-}
 
 //estilos de info
 const styles = StyleSheet.create({
 	contenedor: {
 		backgroundColor: '#fff',
-		flex: 1,
-		justifyContent: 'center',
-		alignContent: 'center',
+		width,
+		height,
 	},
-	container: {
+	containerImg: {
+		marginLeft: width / 10 - 25,
+		marginTop: 30,
 		backgroundColor: '#fff',
-		marginTop: 20,
 		width: width - 30,
-		height: 100,
+		height: 170,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,
@@ -81,15 +82,19 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
-		elevation: 1,
+		elevation: 8,
+	},
+	img: {
+		marginLeft: width / 3 - 20,
+		width: 150,
+		height: 150,
 	},
 	containerVideo: {
 		flex: 1,
 		alignContent: 'center',
 		backgroundColor: '#fff',
-		marginTop: 30,
+		marginTop: 50,
 		width: width - 50,
-
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 200,
@@ -101,9 +106,9 @@ const styles = StyleSheet.create({
 	},
 	expContainer: {
 		backgroundColor: '#fff',
+		width: 350,
 		marginTop: 30,
-		width: 300,
-		height: 100,
+		marginLeft: 30,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,
@@ -111,15 +116,13 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
-		elevation: 1,
-	},
-	img: {
-		marginLeft: width / 3,
-		width: 100,
-		height: 100,
+		elevation: 8,
+		justifyContent: 'center',
+		textAlign: 'center',
 	},
 	exp: {
-		marginTop: 5,
+		marginTop: 8,
+		marginBottom: 10,
 		textAlign: 'center',
 		fontWeight: 'bold',
 		fontSize: 20,

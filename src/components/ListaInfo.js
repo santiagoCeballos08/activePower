@@ -1,7 +1,7 @@
 /*
 ---- importes utilizados ----
 */
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import { Dimensions } from 'react-native'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -12,6 +12,9 @@ const { width, height } = Dimensions.get('screen')
 ---- renderizado de la lista de la vista Gratis
 */
 const ListaInfo = memo(({ navigation, data }) => {
+	// useEffect(() => {
+	// 	console.log(data)
+	// })
 	return (
 		<View>
 			{data.map(data => {
@@ -20,6 +23,8 @@ const ListaInfo = memo(({ navigation, data }) => {
 						img={data.img}
 						des={data.des}
 						name={data.nombre}
+						exp={data.exp}
+						exp2={data.exp2}
 						key={data.id}
 						navigation={navigation}
 					/>
@@ -32,11 +37,11 @@ const ListaInfo = memo(({ navigation, data }) => {
 /*
 	---- visualizacion de item
 */
-const RenderItem = ({ img, des, name, navigation }) => {
+const RenderItem = ({ img, des, name, exp, exp2, navigation }) => {
 	return (
 		<TouchableOpacity
 			onPress={() => {
-				const data = { img, des, name }
+				const data = { img, des, name, exp, exp2 }
 				navigation.navigate('Info', { data })
 			}}
 		>
@@ -66,7 +71,7 @@ const styles = StyleSheet.create({
 		marginLeft: 10,
 		marginBottom: 40,
 		position: 'relative',
-		elevation: 2,
+		elevation: 8,
 		shadowColor: '#111',
 		shadowOffset: {
 			width: 0,

@@ -37,7 +37,6 @@ const RenderItem = ({ img, des, name, navigation }) => {
 	return (
 		<TouchableOpacity
 			onPress={() => {
-				navigation.setParams({ img, des, name })
 				const data = { img, des, name }
 				navigation.navigate('InfoRutina', { data })
 			}}
