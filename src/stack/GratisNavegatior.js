@@ -7,14 +7,9 @@ import Gratis from '../pages/Gratis'
 import InfoRutina from '../components/InfoRutina'
 import Info from '../pages/Info'
 import firebase from '../../database/firebase'
-import { View, Text } from 'react-native'
-// import HeaderStack from '../components/HeaderStack'
+import { View, Text, StyleSheet } from 'react-native'
 import { IconButton, Colors } from 'react-native-paper'
-// import Icon from '../components/icon'
 import Icon from '../components/Icon'
-import { StatusBar } from 'react-native'
-import { StyleSheet } from 'react-native'
-import Left from '../components/left'
 
 //instanciacion de stack
 const Stack = createStackNavigator()
