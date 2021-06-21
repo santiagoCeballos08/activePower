@@ -3,7 +3,6 @@
 */
 import React from 'react'
 import { View } from 'react-native'
-import Nav from '../components/Drawer/Nav'
 
 /*
 ---- vista de la calculadora ----
@@ -12,7 +11,7 @@ import Nav from '../components/Drawer/Nav'
 const CalculaMasa = ({ navigation, route }) => {
 	return (
 		<View>
-			<Nav navigation={navigation} title='Conoce tu indice corporal' />
+			<Text>calular tu masa</Text>
 		</View>
 	)
 }

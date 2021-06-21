@@ -35,13 +35,6 @@ const MensajeNavigator = ({ navigation, route }) => {
 					),
 				}}
 			/>
-			<Stack.Screen
-				name='Sala'
-				component={Chat}
-				options={{
-					headerTitle: () => <Text style={styles.Text}>Sala</Text>,
-				}}
-			/>
 		</Stack.Navigator>
 	)
 }

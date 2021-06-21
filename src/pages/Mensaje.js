@@ -39,7 +39,7 @@ const RenderItem = ({ name, online, navigation }) => {
 			<TouchableOpacity
 				style={styles.cardBtn}
 				onPress={() => {
-					navigation.navigate('Sala')
+					console.log('click')
 				}}
 			>
 				<Text style={{ color: Colors.black, textAlign: 'center' }}>Power</Text>

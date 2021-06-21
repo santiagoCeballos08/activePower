@@ -4,7 +4,7 @@
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import TabNavigator from '../TabNavigator'
-import DrawerContent from '../components/Drawer/DrawerContent'
+import DrawerContentenido from '../components/Drawer/DrawerContent'
 import ModoPremium from '../pages/ModoPremium'
 import CalculaMasa from '../pages/CalcularMasa'
 import CrearRutina from '../pages/CrearRutina'
@@ -23,7 +23,12 @@ const Drawer = createDrawerNavigator()
 */
 const MenuHamburguesa = () => (
 	<NavigationContainer independent={true}>
-		<Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+		<Drawer.Navigator
+			drawerContent={props => <DrawerContentenido {...props} />}
+			drawerContentOptions={{
+				activeTintColor: '#FF8F09',
+			}}
+		>
 			<Drawer.Screen name='Principal' component={TabNavigator}></Drawer.Screen>
 			<Drawer.Screen name='ModoPremium' component={ModoPremium}></Drawer.Screen>
 			<Drawer.Screen name='CalculaMasa' component={CalculaMasa}></Drawer.Screen>
