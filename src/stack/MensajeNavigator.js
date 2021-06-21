@@ -22,7 +22,7 @@ const MensajeNavigator = ({ navigation, route }) => {
 			<Stack.Screen
 				name='Mensaje'
 				component={Mensaje}
-				initialParams={data}
+				initialParams={{ data }}
 				options={{
 					headerTitle: () => <Text style={styles.text}>Chatssito</Text>,
 					headerLeft: () => (
@@ -52,10 +52,12 @@ const data = [
 	{
 		nombre: 'Sala 1',
 		online: 40,
+		id: 1,
 	},
 	{
 		nombre: 'Sala 2',
 		online: 12,
+		id: 2,
 	},
 ]
 
