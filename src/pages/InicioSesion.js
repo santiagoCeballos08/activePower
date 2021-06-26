@@ -48,6 +48,7 @@ const inicioSesion = ({ navigation }) => {
 					value={contraseña}
 					onChange={setContraseña}
 					placeholder='Contraseña'
+					secureTextEntry={true}
 				/>
 			</View>
 

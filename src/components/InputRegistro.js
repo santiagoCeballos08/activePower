@@ -9,7 +9,9 @@ import { Input } from 'react-native-elements'
 
 const { width, height } = Dimensions.get('window')
 
-export const InputRegistro = ({ icon, title, value, onChange, placeholder }) => {
+
+	export	const InputRegistro = ({ icon, title, value, onChange, placeholder,onChangeText,secureTextEntry }) => {
+
 	return (
 		<View style={styles.container}>
 			<Input
@@ -23,9 +25,12 @@ export const InputRegistro = ({ icon, title, value, onChange, placeholder }) => 
 					onChange(text)
 				}}
 				placeholder={placeholder}
+				onChangeText ={onChangeText}
+				secureTextEntry={secureTextEntry}
 			/>
 		</View>
 	)
+
 }
 
 /*<TextInput

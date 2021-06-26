@@ -12,8 +12,10 @@ import {
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
-// import Icon from '../components/Icon'
+import firebase from '../../database/firebase'
+import { useRef } from 'react'
 
+//comienzo de formulario
 const { width, height } = Dimensions.get('screen')
 
 const Registro = ({ navigation }) => {
@@ -27,6 +29,31 @@ const Registro = ({ navigation }) => {
 	const [correo, setCorreo] = useState('')
 	const [contraseña, setContraseña] = useState('')
 	const [repContraseña, setRepContraseña] = useState('')
+
+	//estado para el formulario
+	const [user, setUser] = useState({
+		nombre: '',
+		email: '',
+		pass: '',
+		passR:'',
+	})
+	//capturar la informacion
+	const capInformacion = (nombre, valor) => {
+		setUser({...user, [nombre]:valor})
+	}
+	const registarUsuario = async() => {
+		if (user.nombre == '' || user.email == '' || user.pass == '' || useRef == '') {
+			alert('porfavor rellenar los campos correspondientes')
+		} else {
+			await firebase.db.collection('usuarios').add({
+				nombre: user.nombre,
+				email: user.email,
+				pass: user.pass,
+				passR: user.passR,
+			})
+			alert('registrado en active power')
+		}
+	}
 
 	return (
 		<SafeAreaView style={styles.container}>
@@ -45,6 +72,7 @@ const Registro = ({ navigation }) => {
 					value={nombre}
 					onChange={setNombre}
 					placeholder='nombre'
+					onChangeText = {(valor) => capInformacion('nombre', valor) }
 				/>
 				<InputRegistro
 					icon='mail3'
@@ -53,6 +81,7 @@ const Registro = ({ navigation }) => {
 					ss
 					onChange={setCorreo}
 					placeholder='Correo'
+					onChangeText = {(valor) => capInformacion('email', valor) }
 				/>
 				<InputRegistro
 					icon='lock'
@@ -60,6 +89,9 @@ const Registro = ({ navigation }) => {
 					value={contraseña}
 					onChange={setContraseña}
 					placeholder='Contraseña'
+					secureTextEntry={true}
+					onChangeText = {(valor) => capInformacion('pass', valor) }
+					secureTextEntry={true}
 				/>
 				<InputRegistro
 					icon='lock'
@@ -67,9 +99,13 @@ const Registro = ({ navigation }) => {
 					value={repContraseña}
 					onChange={setRepContraseña}
 					placeholder='contraseña'
+					secureTextEntry={true}
+					onChangeText = {(valor) => capInformacion('passR', valor) }
+					secureTextEntry ={true}
 				/>
 			</View>
-			<TouchableOpacity onPress={() => navigation.navigate('menu')}>
+			{/* onPress={() => navigation.navigate('menu')} */}
+			<TouchableOpacity onPress = {() => registarUsuario()}>
 				<LinearGradient colors={[colores.btn1, colores.btn2]} style={styles.boton}>
 					<Text style={styles.Text}>Registrar usuario</Text>
 				</LinearGradient>
