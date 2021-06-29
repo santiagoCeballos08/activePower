@@ -42,17 +42,19 @@ const Registro = ({ navigation }) => {
 		setUser({...user, [nombre]:valor})
 	}
 	const registarUsuario = async() => {
-		if (user.nombre == '' || user.email == '' || user.pass == '' || useRef == '') {
+		if (user.pass === user.passR){
+		}
+		if (user.nombre == '' || user.email == '' || user.pass == '') {
 			alert('porfavor rellenar los campos correspondientes')
 		} else {
 			await firebase.db.collection('usuarios').add({
 				nombre: user.nombre,
 				email: user.email,
 				pass: user.pass,
-				passR: user.passR,
 			})
 			alert('registrado en active power')
 		}
+
 	}
 
 	return (
