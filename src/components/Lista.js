@@ -6,6 +6,7 @@ import { Dimensions } from 'react-native'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import { Colors } from 'react-native-paper'
+import firebase from '../../database/firebase'
 
 const { width, height } = Dimensions.get('screen')
 
@@ -16,11 +17,23 @@ const Lista = memo(({ navigation, premium, data }) => {
 	return (
 		<View style={styles.view}>
 			{data.map(data => {
+				const ejs = []
+				firebase.db.collection('rutinaGratis').doc(data.id).collection('ejercicios').onSnapshot(query => {
+					query.docs.forEach(doc => {
+						ejs.push(doc.data())
+					})
+					
+				})
+
+				//prueba
+				// firebase.db.collection('rutinasgratis').doc(data.id).collection('ejercicicos')
+
 				return (
 					<RenderItem
 						img={data.img}
 						des={data.des}
 						name={data.nombre}
+						ejs={ejs}
 						key={data.id}
 						navigation={navigation}
 					/>
@@ -33,11 +46,14 @@ const Lista = memo(({ navigation, premium, data }) => {
 /*
 	---- visualizacion de item
 */
-const RenderItem = ({ img, des, name, navigation }) => {
+const RenderItem = ({ img, des, name,ejs, navigation }) => {
+	console.log('---------------')
+	console.log('---------------')
+	console.log(ejs)
 	return (
 		<TouchableOpacity
 			onPress={() => {
-				const data = { img, des, name }
+				const data = { img, des, name,ejs }
 				navigation.navigate('InfoRutina', { data })
 			}}
 		>

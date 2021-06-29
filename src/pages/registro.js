@@ -43,16 +43,16 @@ const Registro = ({ navigation }) => {
 	}
 	const registarUsuario = async() => {
 		if (user.pass === user.passR){
-		}
-		if (user.nombre == '' || user.email == '' || user.pass == '') {
-			alert('porfavor rellenar los campos correspondientes')
-		} else {
-			await firebase.db.collection('usuarios').add({
-				nombre: user.nombre,
-				email: user.email,
-				pass: user.pass,
-			})
-			alert('registrado en active power')
+			if (user.nombre == '' || user.email == '' || user.pass == '') {
+				alert('porfavor rellenar los campos correspondientes')
+			} else {
+				await firebase.db.collection('usuarios').add({
+					nombre: user.nombre,
+					email: user.email,
+					pass: user.pass,
+				})
+				alert('registrado en active power')
+			}
 		}
 
 	}

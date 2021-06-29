@@ -20,6 +20,22 @@ const InicioNavigator = props => {
 		return <View></View>
 	}
 
+
+	//crear un estado
+
+	//hacer validaciones de datos con el estado
+/* 	if(si estado esta vacio){
+
+	}else{
+		const mensajes = []
+		firebase.db.collection('usuarios')..onSnapshot(query => {
+		query.docs.forEach(doc => {
+			mensajes.push(doc.data().msg)
+		})
+		setMensaje(mensajes)
+	})
+	} */
+
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
@@ -51,6 +67,7 @@ const InicioNavigator = props => {
 			<Stack.Screen
 				component={inicioSesion}
 				name='InicioSesion'
+				/* initialParams={estado,funcDelestado} */
 				options={{
 					title: 'InicioSesion',
 					header: CustomHeader,

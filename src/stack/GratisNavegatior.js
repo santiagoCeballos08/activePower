@@ -20,7 +20,7 @@ const Stack = createStackNavigator()
 const GratisNavigator = ({ navigation, route }) => {
 	const [mensaje, setMensaje] = useState()
 	const [data, setData] = useState()
-	//const [showMenu, setShowMenu] = useState(false) h
+	//const [showMenu, setShowMenu] = useState(false) 
 
 	//listar mensajes de la db
 	const mensajes = []
@@ -35,7 +35,7 @@ const GratisNavigator = ({ navigation, route }) => {
 	const datas = []
 	firebase.db.collection('rutinaGratis').onSnapshot(query => {
 		query.docs.forEach(doc => {
-			datas.push(doc.data())
+			datas.push({id: doc.id, ...doc.data()})
 		})
 		setData(datas)
 	})

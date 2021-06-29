@@ -14,7 +14,10 @@ const InfoRutina = ({ navigation, route }) => {
 	// useEffect(() => {
 	// 	console.log(route.params)
 	// })
-	const { des, img, name } = route.params.data
+	const { des, img, name,ejs } = route.params.data
+	console.log('-----------------------------')
+	console.log(ejs)
+	console.log('-----------------------------')
 	return (
 		<View style={{ backgroundColor: '#fff' }}>
 			<Text style={styles.title}>{name}</Text>
