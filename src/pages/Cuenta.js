@@ -2,7 +2,16 @@
 ---- importes utilizados ----
 */
 import React, { useEffect, useState } from 'react'
-import { Text, View, StyleSheet, Button } from 'react-native'
+import {
+	Dimensions,
+	SafeAreaView,
+	StyleSheet,
+	Text,
+	TouchableOpacity,
+	View,
+	TextInput,
+} from 'react-native'
+import { Input } from 'react-native-elements'
 import firebase from '../../database/firebase'
 
 //agregar 1 registro a la coleccion usuario
@@ -43,8 +52,18 @@ const Cuenta = () => {
 	}, [])
 	return (
 		<View>
-			<Text>Cuenta</Text>
-			<Button title='agg usuario' onPress={() => nuevoUsuario()} />
+			<Text></Text>
+			<Image
+				source = {{uri:'https://www.snsmarketing.es/blog/wp-content/uploads/2015/11/experiencia-de-usuario.jpg'}}
+			/>
+
+			<View>
+				<Text>
+					informacion de usuario
+				</Text>
+				<Text> sanjose</Text>
+				<Text>constraseña</Text>
+			</View>
 		</View>
 	)
 }

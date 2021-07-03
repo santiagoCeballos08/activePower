@@ -22,7 +22,6 @@ const Lista = memo(({ navigation, premium, data }) => {
 					query.docs.forEach(doc => {
 						ejs.push(doc.data())
 					})
-					
 				})
 
 				//prueba
@@ -47,9 +46,6 @@ const Lista = memo(({ navigation, premium, data }) => {
 	---- visualizacion de item
 */
 const RenderItem = ({ img, des, name,ejs, navigation }) => {
-	console.log('---------------')
-	console.log('---------------')
-	console.log(ejs)
 	return (
 		<TouchableOpacity
 			onPress={() => {

@@ -23,8 +23,7 @@ const ListaInfo = memo(({ navigation, data }) => {
 						img={data.img}
 						des={data.des}
 						name={data.nombre}
-						exp={data.exp}
-						exp2={data.exp2}
+						res={data.res}
 						key={data.id}
 						navigation={navigation}
 					/>

@@ -24,7 +24,7 @@ const Inicio = ({ navigation }) => {
 			<View style={styles.container}>
 				<TouchableOpacity onPress={() => navigation.navigate('InicioSesion')}>
 					<LinearGradient colors={[color1, color2]} style={styles.btn}>
-						<Text style={styles.txt}>inicia session</Text>
+						<Text style={styles.txt}>inicia sesion</Text>
 					</LinearGradient>
 				</TouchableOpacity>
 				<TouchableOpacity onPress={() => navigation.navigate('registro')}>
