@@ -1,11 +1,9 @@
 /*
 ------ importes utilizados ------
 */
-import { DrawerItem } from '@react-navigation/drawer'
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { Colors, Drawer } from 'react-native-paper'
-import Icon from '../Icon'
 
 /*
 ----- contenido de el munu de hamburgesa

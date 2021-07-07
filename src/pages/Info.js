@@ -15,9 +15,9 @@ const { width, height } = Dimensions.get('window')
 */
 const Info = memo(({ navigation, route }) => {
 	const data = route.params.data
-	// useEffect(() => {
-	// 	console.log(data)
-	// })
+	useEffect(() => {
+		console.log(data)
+	})
 	return (
 		<ScrollView style={{ backgroundColor: Colors.red500, height: height - 500, width }}>
 			<View style={styles.contenedor}>
@@ -52,7 +52,7 @@ const Info = memo(({ navigation, route }) => {
 					/>
 				</View>
 				<View style={styles.expContainer}>
-					<Text style={styles.exp}>Como se debe respirar</Text>
+					<Text style={styles.exp}>Instrucciones</Text>
 					<Text>{data.res}</Text>
 				</View>
 			</View>

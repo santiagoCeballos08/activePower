@@ -1,23 +1,26 @@
 import React from 'react'
-import {View} from 'react-native'
+import { Dimensions } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
-const ListaUsers = ({data,navigation})=>{
-    return  (
-    <View>
+const { width } = Dimensions.get('window')
+
+const ListaUsers = ({ data, navigation }) => {
+	return (
+		<View>
 			{data.map(data => {
 				return (
 					<RenderItem
 						email={data.email}
-                        nombre={data.nombre}
-                        key={data.id}
-                        pass={data.pass}
-                        img={data.img}
+						nombre={data.nombre}
+						key={data.id}
+						pass={data.pass}
+						img={data.img}
 						navigation={navigation}
 					/>
 				)
 			})}
 		</View>
-    )
+	)
 }
 //enlace de la img generica
 
@@ -25,7 +28,7 @@ const RenderItem = ({ navigation }) => {
 	return (
 		<TouchableOpacity
 			onPress={() => {
-				const data = { img, nombre, email, pass}
+				const data = { img, nombre, email, pass }
 				// navigation.navigate('Info', { data })
 			}}
 		>
