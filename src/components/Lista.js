@@ -48,11 +48,19 @@ const Lista = memo(({ navigation, data }) => {
 /*
 	---- visualizacion de item
 */
+<<<<<<< HEAD
 const RenderItem = ({ img, des, name, ejs, navigation }) => {
 	return (
 		<TouchableOpacity
 			onPress={() => {
 				const data = { img, des, name, ejs }
+=======
+const RenderItem = ({ img, des, name,ejs, navigation }) => {
+	return (
+		<TouchableOpacity
+			onPress={() => {
+				const data = { img, des, name,ejs }
+>>>>>>> fc365dfc64548f4f397c53bf977c2467cdd843f2
 				navigation.navigate('InfoRutina', { data })
 			}}
 		>

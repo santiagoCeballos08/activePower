@@ -33,7 +33,7 @@ const Info = memo(({ navigation, route }) => {
 					<Text style={styles.exp}>Explicación por Video</Text>
 					<Video
 						source={{
-							uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+							uri: data.video,
 						}}
 						rate={1.0}
 						volume={0.5}
@@ -53,9 +53,7 @@ const Info = memo(({ navigation, route }) => {
 				</View>
 				<View style={styles.expContainer}>
 					<Text style={styles.exp}>Como se debe respirar</Text>
-					<Text>{data.exp}</Text>
-					<Text style={styles.exp}>Instrucciones</Text>
-					<Text>{data.exp2}</Text>
+					<Text>{data.res}</Text>
 				</View>
 			</View>
 		</ScrollView>

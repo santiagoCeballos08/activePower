@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
+import firebase from '../../database/firebase'
 
 const { width, height } = Dimensions.get('screen')
 
@@ -20,6 +21,18 @@ const inicioSesion = ({ navigation }) => {
 		bg1: '#D9387890',
 		bg2: '#FFAA0090',
 	})
+ // conexon con la base de datos
+/* 	const [user,setUser] = useState({
+		nombre = '',
+		contraseña = '',
+	}) */
+
+/* 	const capInformacionLogin = (nombre,valor) => {
+			useState({...user,[nombre]:valor})
+	}
+ */
+/* 	const validacion = async() => {
+	} */
 	const [nombre, setNombre] = useState('')
 	const [contraseña, setContraseña] = useState('')
 	return (
@@ -41,6 +54,7 @@ const inicioSesion = ({ navigation }) => {
 					value={nombre}
 					onChange={setNombre}
 					placeholder='nombre'
+					/* onChangeText={(valor) => capInformacionLogin('nombre', valor)} */
 				/>
 				<InputRegistro
 					icon='lock'
@@ -49,6 +63,7 @@ const inicioSesion = ({ navigation }) => {
 					onChange={setContraseña}
 					placeholder='Contraseña'
 					secureTextEntry={true}
+					/* onChangeText ={(valor) => capInformacionLogin('contraseña',valor)} */
 				/>
 			</View>
 
