@@ -22,9 +22,9 @@ const ListaInfo = memo(({ navigation, data }) => {
 					<RenderItem
 						img={data.img}
 						des={data.des}
-						name={data.nombre}
-						exp={data.exp}
-						exp2={data.exp2}
+						nombre={data.nombre}
+						res={data.res}
+						video={data.video}
 						key={data.id}
 						navigation={navigation}
 					/>
@@ -37,18 +37,18 @@ const ListaInfo = memo(({ navigation, data }) => {
 /*
 	---- visualizacion de item
 */
-const RenderItem = ({ img, des, name, exp, exp2, navigation }) => {
+const RenderItem = ({ img, des, nombre, res, video, navigation }) => {
 	return (
 		<TouchableOpacity
 			onPress={() => {
-				const data = { img, des, name, exp, exp2 }
+				const data = { img, des, nombre, res, video }
 				navigation.navigate('Info', { data })
 			}}
 		>
 			<View style={styles.card}>
 				<Image source={{ uri: img }} style={styles.img} />
 				<View>
-					<Text style={styles.titleGratis}>{name}</Text>
+					<Text style={styles.titleGratis}>{nombre}</Text>
 					<Text style={styles.desGratis}>{des}</Text>
 				</View>
 			</View>

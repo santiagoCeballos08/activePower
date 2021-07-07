@@ -35,7 +35,7 @@ const GratisNavigator = ({ navigation, route }) => {
 	const datas = []
 	firebase.db.collection('rutinaGratis').onSnapshot(query => {
 		query.docs.forEach(doc => {
-			datas.push(doc.data())
+			datas.push({ id: doc.id, ...doc.data() })
 		})
 		setData(datas)
 	})
