@@ -16,10 +16,6 @@ const ProfileNavigator = ({ navigation, route }) => {
 	return (
 		<Stack.Navigator
 			screenOptions={{
-				headerStyle: {
-					alignItems: 'center',
-					justifyContent: 'center',
-				},
 				headerTintColor: '#111',
 				headerTitleStyle: {
 					fontWeight: 'bold',

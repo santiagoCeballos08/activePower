@@ -8,7 +8,7 @@ import { Colors, Drawer } from 'react-native-paper'
 /*
 ----- contenido de el munu de hamburgesa
 */
-const DrawerContentenido = props => {
+const DrawerContentenido = ({ navigation }) => {
 	return (
 		<View>
 			<View style={styles.containerTitle}>
@@ -18,22 +18,22 @@ const DrawerContentenido = props => {
 				<Drawer.Item
 					label='Modo Premium'
 					icon={() => <Image source={require('../../img/diamond.png')} />}
-					onPress={() => props.navigation.navigate('ModoPremium')}
+					onPress={() => navigation.navigate('ModoPremium')}
 				/>
 				<Drawer.Item
 					label='Calcula tu masa'
-					onPress={() => props.navigation.navigate('CalculaMasa')}
+					onPress={() => navigation.navigate('CalculaMasa')}
 					icon={() => <Image source={require('../../img/indice-de-masa-corporal.png')} />}
 				/>
 				<Drawer.Item
 					label='Crear Rutina'
 					icon={() => <Image source={require('../../img/fuerte.png')} />}
-					onPress={() => props.navegaition.navegate('CrearRutina')}
+					onPress={() => navegaition.navegate('CrearRutina')}
 				/>
 				<Drawer.Item
 					label='Buscar Usuario'
 					icon={() => <Image source={require('../../img/candidato.png')} />}
-					onPress={() => props.navegaition.navegate('BuscarUsuario')}
+					onPress={() => navegaition.navegate('BuscarUsuario')}
 				/>
 			</Drawer.Section>
 		</View>

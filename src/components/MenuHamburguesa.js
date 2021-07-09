@@ -10,10 +10,14 @@ import CalculaMasa from '../pages/CalcularMasa'
 import CrearRutina from '../pages/CrearRutina'
 import BuscarUsuario from '../pages/BuscarUsuario'
 import { NavigationContainer } from '@react-navigation/native'
-import { LogBox } from 'react-native'
+import { LogBox, Text, View } from 'react-native'
+import { Dimensions } from 'react-native'
+
+const { width, height } = Dimensions.get('window')
 
 LogBox.ignoreLogs([
 	'Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle',
+	'Setting a timer for a long period of time, i.e. multiple minutes, is a performance and correctness issue on Android as it keeps the timer module awake, and timers can only be called when the app is in the foreground. See https://github.com/facebook/react-native/issues/12981 for more info.',
 ])
 //instanciacion de menu tipo hamburguesa
 const Drawer = createDrawerNavigator()
@@ -24,7 +28,7 @@ const Drawer = createDrawerNavigator()
 const MenuHamburguesa = () => (
 	<NavigationContainer independent={true}>
 		<Drawer.Navigator
-			drawerContent={props => <DrawerContentenido {...props} />}
+			// drawerContent={props => <DrawerContentenido {...props} />}
 			drawerContentOptions={{
 				activeTintColor: '#FF8F09',
 			}}
@@ -33,7 +37,20 @@ const MenuHamburguesa = () => (
 			<Drawer.Screen name='ModoPremium' component={ModoPremium}></Drawer.Screen>
 			<Drawer.Screen name='CalculaMasa' component={CalculaMasa}></Drawer.Screen>
 			<Drawer.Screen name='CrearRutina' component={CrearRutina}></Drawer.Screen>
-			<Drawer.Screen name='BuscarUsuario' component={BuscarUsuario}></Drawer.Screen>
+			<Drawer.Screen
+				name='BuscarUsuario'
+				component={BuscarUsuario}
+				options={{
+					headerShown: true,
+					headerTitle: () => (
+						<Text
+							style={{ marginLeft: 50, marginTop: 12, fontWeight: 'bold', fontSize: 18 }}
+						>
+							Buscar Usuarios
+						</Text>
+					),
+				}}
+			></Drawer.Screen>
 		</Drawer.Navigator>
 	</NavigationContainer>
 )

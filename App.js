@@ -8,10 +8,6 @@ import InicioNavegation from './src/stack/InicioNavegation'
 //app
 
 const App = () => {
-	const [splash, setSplash] = useState(true)
-
-	//el tiempo del splash
-
 	return (
 		<NavigationContainer>
 			<InicioNavegation />

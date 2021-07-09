@@ -1,12 +1,13 @@
 import React from 'react'
 import { Dimensions } from 'react-native'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Text, Image } from 'react-native'
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler'
 
-const { width } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
 
 const ListaUsers = ({ data, navigation }) => {
 	return (
-		<View>
+		<ScrollView style={{ height: height - 150, backgroundColor: '#fff' }}>
 			{data.map(data => {
 				return (
 					<RenderItem
@@ -19,12 +20,19 @@ const ListaUsers = ({ data, navigation }) => {
 					/>
 				)
 			})}
-		</View>
+		</ScrollView>
 	)
 }
-//enlace de la img generica
+//codigo de pruebas
+/*const Hola = () => {
+	return (
+		<View>
+			<Text>soy un holita</Text>
+		</View>
+	)
+}*/
 
-const RenderItem = ({ navigation }) => {
+const RenderItem = ({ navigation, img, nombre, email, pass }) => {
 	return (
 		<TouchableOpacity
 			onPress={() => {
