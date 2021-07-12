@@ -20,18 +20,22 @@ const CalculaMasa = ({ navigation, route }) => {
 		peso: 0,
 	
 	  });
-	
+		/*
+---- estados que se van a utilizar para la operacion  ----
+*/
 	  const [stateAltura, setStateAltur] = useState({
 		altura: 0,
 	
 	  });
-	
+		/*
+---- estados que se van a utilizar para la operacion  ----
+*/
 	  const [stateResultado, setStateResult] = useState({
 		resul: "",
 	  });
 
 	  /*
----- operacion logica de la calculadora  ----
+---- operacion logica de la calculadora  
 */
 	  const fcalcular = (peso, altura, resul) => {
 		 let imc = (peso / (altura * altura));   
