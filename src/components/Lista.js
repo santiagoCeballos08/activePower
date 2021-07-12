@@ -16,7 +16,7 @@ const { width, height } = Dimensions.get('screen')
 const Lista = memo(({ navigation, data }) => {
 	return (
 		<View style={styles.view}>
-			{data.map(data => {
+			{data.map((data, index) => {
 				const ejs = []
 				firebase.db
 					.collection('rutinaGratis')
@@ -36,7 +36,7 @@ const Lista = memo(({ navigation, data }) => {
 						des={data.des}
 						name={data.nombre}
 						ejs={ejs}
-						key={data.id}
+						key={index}
 						navigation={navigation}
 					/>
 				)

@@ -3,21 +3,24 @@
 */
 import { Video } from 'expo-av'
 import React, { memo, useEffect } from 'react'
+import { TouchableOpacity } from 'react-native'
 import { Dimensions } from 'react-native'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, Linking, Button } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { Colors } from 'react-native-paper'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const { width, height } = Dimensions.get('window')
 
 /*
 ---- vista de info ----
 */
+
 const Info = memo(({ navigation, route }) => {
+	const color1 = '#e84b1960',
+		color2 = '#ff050560'
 	const data = route.params.data
-	useEffect(() => {
-		console.log(data)
-	})
+
 	return (
 		<ScrollView style={{ backgroundColor: Colors.red500, height: height - 500, width }}>
 			<View style={styles.contenedor}>
@@ -31,25 +34,11 @@ const Info = memo(({ navigation, route }) => {
 				</View>
 				<View styles={styles.containerVideo}>
 					<Text style={styles.exp}>Explicación por Video</Text>
-					<Video
-						source={{
-							uri: data.video,
-						}}
-						rate={1.0}
-						volume={0.5}
-						isMuted={false}
-						resizeMode='cover'
-						shouldPlay={false}
-						isLooping={false}
-						useNativeControls
-						style={{
-							width: width - 40,
-							height: 200,
-							marginTop: 30,
-							marginBottom: 15,
-							marginLeft: width / 20,
-						}}
-					/>
+					<TouchableOpacity onPress={() => Linking.openURL(data.video)}>
+						<LinearGradient colors={[color1, color2]} style={styles.btn}>
+							<Text style={styles.txt}>Precioname para ver el video</Text>
+						</LinearGradient>
+					</TouchableOpacity>
 				</View>
 				<View style={styles.expContainer}>
 					<Text style={styles.exp}>Instrucciones</Text>
@@ -124,6 +113,21 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 		fontWeight: 'bold',
 		fontSize: 20,
+	},
+	txt: {
+		marginTop: 7,
+		fontSize: 15,
+		color: '#ffff',
+		textAlign: 'center',
+	},
+	btn: {
+		margin: 10,
+		display: 'flex',
+		marginLeft: width / 4 - 10,
+		width: 220,
+		height: 50,
+		padding: 5,
+		borderRadius: 20,
 	},
 })
 
