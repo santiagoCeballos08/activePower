@@ -12,23 +12,30 @@ import { Value } from 'react-native-reanimated'
 
 const CalculaMasa = ({ navigation, route }) => {
 
+	/*
+---- estados que se van a utilizar para la operacion  ----
+*/
+
 	const [state, setState] = useState({
-		pkpeso: 0,
+		peso: 0,
 	
 	  });
 	
-	  const [state2, setState2] = useState({
-		mtaltura: 0,
+	  const [stateAltura, setStateAltur] = useState({
+		altura: 0,
 	
 	  });
 	
-	  const [state3, setState3] = useState({
+	  const [stateResultado, setStateResult] = useState({
 		resul: "",
 	  });
-	  
-	  const fcalcular = (pkpeso, mtaltura, resul) => {
-		 let imc = (pkpeso / (mtaltura * mtaltura));   
-		setState3({resul:imc});
+
+	  /*
+---- operacion logica de la calculadora  ----
+*/
+	  const fcalcular = (peso, altura, resul) => {
+		 let imc = (peso / (altura * altura));   
+		setStateResult({resul:imc});
 	  };
 
 	return (
@@ -38,7 +45,7 @@ const CalculaMasa = ({ navigation, route }) => {
           <TextInput
             style={styles.place2}
             placeholder="peso"
-			onChangeText={(value) => setState({pkpeso:value})}
+			onChangeText={(value) => setState({peso:value})}
           />
         </View>
 
@@ -47,12 +54,12 @@ const CalculaMasa = ({ navigation, route }) => {
           <TextInput
             style={styles.place2}
             placeholder="altura"
-			onChangeText={(value) => setState2({mtaltura:value})}
+			onChangeText={(value) => setStateAltur({altura:value})}
           />
         </View>
 
         <View style={styles.boton}>
-          <TouchableOpacity onPress={() => fcalcular(state.pkpeso, state2.mtaltura)}>
+          <TouchableOpacity onPress={() => fcalcular(state.peso, stateAltura.altura)}>
             <Text style={styles.CC}>CALCULAR IMC</Text>
           </TouchableOpacity>
         </View>
@@ -63,7 +70,7 @@ const CalculaMasa = ({ navigation, route }) => {
 
         <View>
           <Text style={styles.recimc}>   
-		  IMC:{state3.resul}        
+		  IMC:{stateResultado.resul}        
             </Text>
         </View>
 
@@ -71,6 +78,10 @@ const CalculaMasa = ({ navigation, route }) => {
 		</View>
 	)
 }
+
+/*
+---- estilos  de la calculadora ----
+*/
 
 const styles = StyleSheet.create({
 
