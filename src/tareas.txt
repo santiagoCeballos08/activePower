@@ -1,0 +1,4 @@
+validacion de inicio de secion     - ceballos
+ingrear info de paypal		- daniel
+modo premium			- daniel
+conectar con la db informaicon de usuario (cuenta) - ceballos

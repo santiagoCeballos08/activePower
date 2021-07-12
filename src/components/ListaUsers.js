@@ -7,7 +7,7 @@ const { width, height } = Dimensions.get('window')
 
 const ListaUsers = ({ data, navigation }) => {
 	return (
-		<ScrollView style={{ height: height - 150, backgroundColor: '#fff' }}>
+		<ScrollView style={{ height: height - 10, backgroundColor: '#fff' }}>
 			{data.map(data => {
 				return (
 					<RenderItem
@@ -15,6 +15,7 @@ const ListaUsers = ({ data, navigation }) => {
 						nombre={data.nombre}
 						key={data.id}
 						pass={data.pass}
+						premium={data.premium}
 						img={data.img}
 						navigation={navigation}
 					/>
@@ -23,28 +24,16 @@ const ListaUsers = ({ data, navigation }) => {
 		</ScrollView>
 	)
 }
-//codigo de pruebas
-/*const Hola = () => {
-	return (
-		<View>
-			<Text>soy un holita</Text>
-		</View>
-	)
-}*/
 
-const RenderItem = ({ navigation, img, nombre, email, pass }) => {
+const RenderItem = ({ navigation, img, nombre, email, pass, premium }) => {
 	return (
-		<TouchableOpacity
-			onPress={() => {
-				const data = { img, nombre, email, pass }
-				// navigation.navigate('Info', { data })
-			}}
-		>
+		<TouchableOpacity>
 			<View style={styles.card}>
 				<Image source={{ uri: img }} style={styles.img} />
 				<View>
 					<Text style={styles.nombre}>{nombre}</Text>
 					<Text style={styles.email}>{email}</Text>
+					<Text style={styles.premium}>Posee premium: {premium} </Text>
 				</View>
 			</View>
 		</TouchableOpacity>
@@ -82,6 +71,10 @@ const styles = StyleSheet.create({
 	},
 	email: {
 		marginTop: 10,
+		marginLeft: 150,
+	},
+	premium: {
+		marginTop: 15,
 		marginLeft: 150,
 	},
 	img: {

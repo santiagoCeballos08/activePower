@@ -4,11 +4,11 @@
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import TabNavigator from '../TabNavigator'
-import DrawerContentenido from '../components/Drawer/DrawerContent'
+// import DrawerContentenido from '../components/Drawer/DrawerContent'
 import ModoPremium from '../pages/ModoPremium'
 import CalculaMasa from '../pages/CalcularMasa'
 import CrearRutina from '../pages/CrearRutina'
-import BuscarUsuario from '../pages/BuscarUsuario'
+import BuscarUsuarioNavigation from '../stack/BuscarUsuarioNavigator'
 import { NavigationContainer } from '@react-navigation/native'
 import { LogBox, Text, View } from 'react-native'
 import { Dimensions } from 'react-native'
@@ -35,21 +35,24 @@ const MenuHamburguesa = () => (
 		>
 			<Drawer.Screen name='Principal' component={TabNavigator}></Drawer.Screen>
 			<Drawer.Screen name='ModoPremium' component={ModoPremium}></Drawer.Screen>
-			<Drawer.Screen name='CalculaMasa' component={CalculaMasa}></Drawer.Screen>
-			<Drawer.Screen name='CrearRutina' component={CrearRutina}></Drawer.Screen>
 			<Drawer.Screen
-				name='BuscarUsuario'
-				component={BuscarUsuario}
+				name='CalculaMasa'
+				component={CalculaMasa}
 				options={{
 					headerShown: true,
 					headerTitle: () => (
 						<Text
 							style={{ marginLeft: 50, marginTop: 12, fontWeight: 'bold', fontSize: 18 }}
 						>
-							Buscar Usuarios
+							Calcula tu masa
 						</Text>
 					),
 				}}
+			></Drawer.Screen>
+			<Drawer.Screen name='CrearRutina' component={CrearRutina}></Drawer.Screen>
+			<Drawer.Screen
+				name='BuscarUsuario'
+				component={BuscarUsuarioNavigation}
 			></Drawer.Screen>
 		</Drawer.Navigator>
 	</NavigationContainer>
