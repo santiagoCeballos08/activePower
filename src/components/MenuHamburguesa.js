@@ -35,7 +35,20 @@ const MenuHamburguesa = () => (
 		>
 			<Drawer.Screen name='Principal' component={TabNavigator}></Drawer.Screen>
 			<Drawer.Screen name='ModoPremium' component={ModoPremium}></Drawer.Screen>
-			<Drawer.Screen name='CalculaMasa' component={CalculaMasa}></Drawer.Screen>
+			<Drawer.Screen
+				name='CalculaMasa'
+				component={CalculaMasa}
+				options={{
+					headerShown: true,
+					headerTitle: () => (
+						<Text
+							style={{ marginLeft: 50, marginTop: 12, fontWeight: 'bold', fontSize: 18 }}
+						>
+							Calcula tu masa
+						</Text>
+					),
+				}}
+			></Drawer.Screen>
 			<Drawer.Screen name='CrearRutina' component={CrearRutina}></Drawer.Screen>
 			<Drawer.Screen
 				name='BuscarUsuario'
@@ -46,7 +59,7 @@ const MenuHamburguesa = () => (
 						<Text
 							style={{ marginLeft: 50, marginTop: 12, fontWeight: 'bold', fontSize: 18 }}
 						>
-							Buscar Usuarios
+							Buscar usuarios
 						</Text>
 					),
 				}}

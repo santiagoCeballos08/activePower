@@ -1,0 +1,6 @@
+validacion de inicio de secion     - ceballos
+info usuario			- titi
+ingrear info de paypal		- daniel
+modo premium			- daniel
+meter datos de la db a premium 	- titi
+conectar con la db informaicon de usuario (cuenta) - ceballos
