@@ -5,7 +5,7 @@
 import React , { useState }from 'react'
 import { View,Text,StyleSheet,TextInput,TouchableOpacity} from 'react-native'
 import { Value } from 'react-native-reanimated'
-
+import { Colors } from 'react-native-paper'
 /*
 ---- vista de la calculadora ----
 */
@@ -63,7 +63,9 @@ const CalculaMasa = ({ navigation, route }) => {
         </View>
 
         <View style={styles.boton}>
-          <TouchableOpacity onPress={() => fcalcular(state.peso, stateAltura.altura)}>
+          <TouchableOpacity onPress={() => fcalcular(state.peso, stateAltura.altura)}
+		  style={styles.Col}
+		  >
             <Text style={styles.CC}>CALCULAR IMC</Text>
           </TouchableOpacity>
         </View>
@@ -92,6 +94,7 @@ const styles = StyleSheet.create({
 	cont: {
 		flex: 1,
 		padding: 100,
+		backgroundColor: Colors.white,
 	  },
 
 	  alt: {
@@ -140,6 +143,9 @@ const styles = StyleSheet.create({
 	  },
 	  recimc:{
 		textAlign:"center",
+	  },
+	  Col:{
+		backgroundColor: Colors.yellow600,
 	  }
 
 })
