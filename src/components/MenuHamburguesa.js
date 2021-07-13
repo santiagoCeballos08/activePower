@@ -34,7 +34,20 @@ const MenuHamburguesa = () => (
 			}}
 		>
 			<Drawer.Screen name='Principal' component={TabNavigator}></Drawer.Screen>
-			<Drawer.Screen name='ModoPremium' component={ModoPremium}></Drawer.Screen>
+			<Drawer.Screen
+				name='ModoPremium'
+				component={ModoPremium}
+				options={{
+					headerShown: true,
+					headerTitle: () => (
+						<Text
+							style={{ marginLeft: 50, marginTop: 12, fontWeight: 'bold', fontSize: 18 }}
+						>
+							Obtener Premium
+						</Text>
+					),
+				}}
+			></Drawer.Screen>
 			<Drawer.Screen
 				name='CalculaMasa'
 				component={CalculaMasa}

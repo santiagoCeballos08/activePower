@@ -1,13 +1,14 @@
 /*
 ---- importes utilizados ----
 */
-import React from 'react'
+import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 import Inicio from '../pages/Inicio'
 import Registro from '../pages/registro'
 import MenuHamburguesa from '../components/MenuHamburguesa'
 import inicioSesion from '../pages/InicioSesion'
+import firebase from '../../database/firebase'
 
 //instanciacion de stack
 const Stack = createStackNavigator()
@@ -19,22 +20,6 @@ const InicioNavigator = props => {
 	const CustomHeader = () => {
 		return <View></View>
 	}
-
-
-	//crear un estado
-
-	//hacer validaciones de datos con el estado
-/* 	if(si estado esta vacio){
-
-	}else{
-		const mensajes = []
-		firebase.db.collection('usuarios')..onSnapshot(query => {
-		query.docs.forEach(doc => {
-			mensajes.push(doc.data().msg)
-		})
-		setMensaje(mensajes)
-	})
-	} */
 
 	return (
 		<Stack.Navigator>

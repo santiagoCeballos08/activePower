@@ -14,25 +14,35 @@ import firebase from '../../database/firebase'
 
 const { width, height } = Dimensions.get('screen')
 
-const inicioSesion = ({ navigation }) => {
+const inicioSesion = ({}) => {
+	const [sesion, setSesion] = useState({
+		nombre: '',
+		contraseña: '',
+	})
+
+	const info = (nombre, val) => {
+		setSesion({ ...user, [nombre]: val })
+	}
+	const inicio = () => {
+		if (sesion.nombre == '' || sesion.contraseña == '') {
+			alert('porfavor introdusca las credenciales ')
+		} else {
+			const mensajes = []
+			firebase.db.collection('usuarios').onSnapshot(query => {
+				query.docs.forEach(doc => {
+					mensajes.push()
+				})
+				setMensaje(mensajes)
+			})
+		}
+	}
 	const [colores, setColores] = useState({
 		btn1: '#e84b1960',
 		btn2: '#ff050560',
 		bg1: '#D9387890',
 		bg2: '#FFAA0090',
 	})
- // conexon con la base de datos
-/* 	const [user,setUser] = useState({
-		nombre = '',
-		contraseña = '',
-	}) */
 
-/* 	const capInformacionLogin = (nombre,valor) => {
-			useState({...user,[nombre]:valor})
-	}
- */
-/* 	const validacion = async() => {
-	} */
 	const [nombre, setNombre] = useState('')
 	const [contraseña, setContraseña] = useState('')
 	return (
@@ -54,7 +64,7 @@ const inicioSesion = ({ navigation }) => {
 					value={nombre}
 					onChange={setNombre}
 					placeholder='nombre'
-					/* onChangeText={(valor) => capInformacionLogin('nombre', valor)} */
+					onChangeText={val => info('nombre', val)}
 				/>
 				<InputRegistro
 					icon='lock'
@@ -63,11 +73,12 @@ const inicioSesion = ({ navigation }) => {
 					onChange={setContraseña}
 					placeholder='Contraseña'
 					secureTextEntry={true}
-					/* onChangeText ={(valor) => capInformacionLogin('contraseña',valor)} */
+					onChangeText={val => info('constraseña', val)}
 				/>
 			</View>
 
-			<TouchableOpacity onPress={() => navigation.navigate('menu')}>
+			{/* <TouchableOpacity onPress={() => navigation.navigate('menu')}> */}
+			<TouchableOpacity onPress={() => validacion()}>
 				<LinearGradient colors={[colores.btn1, colores.btn2]} style={styles.boton}>
 					<Text style={styles.Text}>iniciar sesion</Text>
 				</LinearGradient>
