@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
-import firebase from '../../database/firebase'
+import firebase  from '../../database/firebase'
 import { useRef } from 'react'
 
 //comienzo de formulario

@@ -10,22 +10,22 @@ import {
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
-import firebase from '../../database/firebase'
+import  * as firebase from '../../database/firebase'
 
 const { width, height } = Dimensions.get('screen')
 
-const inicioSesion = ({}) => {
-	const [sesion, setSesion] = useState({
+ const inicioSesion = ({navigation}) => {
+	/* const [sesion, setSesion] = useState({
 		nombre: '',
 		contraseña: '',
-	})
+	}) */
 
-	const info = (nombre, val) => {
+/* 	const info = (nombre, val) => {
 		setSesion({ ...user, [nombre]: val })
 	}
 	const inicio = () => {
 		if (sesion.nombre == '' || sesion.contraseña == '') {
-			alert('porfavor introdusca las credenciales ')
+			alert('porfavor introdusca las credenciales ')	
 		} else {
 			const mensajes = []
 			firebase.db.collection('usuarios').onSnapshot(query => {
@@ -35,7 +35,8 @@ const inicioSesion = ({}) => {
 				setMensaje(mensajes)
 			})
 		}
-	}
+	}   */
+
 	const [colores, setColores] = useState({
 		btn1: '#e84b1960',
 		btn2: '#ff050560',
@@ -77,8 +78,7 @@ const inicioSesion = ({}) => {
 				/>
 			</View>
 
-			{/* <TouchableOpacity onPress={() => navigation.navigate('menu')}> */}
-			<TouchableOpacity onPress={() => validacion()}>
+			<TouchableOpacity onPress={() => navigation.navigate('menu')}>
 				<LinearGradient colors={[colores.btn1, colores.btn2]} style={styles.boton}>
 					<Text style={styles.Text}>iniciar sesion</Text>
 				</LinearGradient>
@@ -94,7 +94,7 @@ const inicioSesion = ({}) => {
 			</TouchableOpacity>
 		</SafeAreaView>
 	)
-}
+		}
 
 const styles = StyleSheet.create({
 	container: {
