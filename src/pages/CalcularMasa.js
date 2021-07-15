@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderRadius: 5,
 		textAlign: "center",
+		backgroundColor: Colors.amber200,
 	  },
 
 	  CC: {
@@ -135,6 +136,7 @@ const styles = StyleSheet.create({
 		fontSize: 15,
 		fontWeight: "bold",
 		fontSize: 15,
+		color: Colors.black,
 	  },
 
 	  recimc:{
