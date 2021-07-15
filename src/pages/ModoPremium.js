@@ -6,6 +6,7 @@ import { StyleSheet,} from 'react-native'
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from  '@react-navigation/stack' 
 
+
 const Stack = createStackNavigator()
 
 import ingresarinfo from '../../Screens/ingresarinfo';
@@ -13,9 +14,9 @@ import premim from '../../Screens/premim';
 
 function Mystack() {
 	return(
-	  <Stack.Navigator>     
-	   <Stack.Screen name="premim" component ={premim} />
-		<Stack.Screen name="ingresarinfo" component ={ingresarinfo} />
+	  <Stack.Navigator>   
+		  <Stack.Screen name="premim" component ={premim} />
+		  <Stack.Screen name="ingresarinfo" component ={ingresarinfo} />  
 	  </Stack.Navigator>
 	)
   }
@@ -25,9 +26,9 @@ function Mystack() {
 */
 const ModoPremium = ({ navigation, route }) => {
 	return (
-	<NavigationContainer>
+	
        <Mystack/>
-    </NavigationContainer>
+    
 	)
 }
 
