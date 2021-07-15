@@ -8,9 +8,9 @@ import Inicio from '../pages/Inicio'
 import Registro from '../pages/registro'
 import MenuHamburguesa from '../components/MenuHamburguesa'
 import inicioSesion from '../pages/InicioSesion'
-import firebase from '../../database/firebase'
 
-//instanciacion de stack
+
+//instanciacion de stack}
 const Stack = createStackNavigator()
 
 /*
