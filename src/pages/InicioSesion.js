@@ -83,7 +83,9 @@ const inicioSesion = ({navigation}) => {
 					secureTextEntry={true}
 			/>
 			</View>
-			<TouchableOpacity onPress={() => iniciarSesion()}>
+
+			{/* <TouchableOpacity onPress={() => iniciarSesion()}> */}
+			<TouchableOpacity onPress={() => navigation.navigate('menu')}>
 				<LinearGradient colors={[colores.btn1, colores.btn2]} style={styles.boton}>
 					<Text style={styles.Text}>iniciar sesion</Text>
 				</LinearGradient>
