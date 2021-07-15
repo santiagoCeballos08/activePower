@@ -36,14 +36,15 @@ const inicioSesion = ({navigation}) => {
 				var user = userCredential.user;
 				console.log('entro')
 
-			  })
-			  .catch((error) => {
-				var errorCode = error.code;
-				var errorMessage = error.message;
-				alert('contraseña o correo no valido')
-			  });
+				})
+				.catch((error) => {
+					var errorCode = error.code;
+					var errorMessage = error.message;
+					alert('contraseña o correo no valido')
+				});
 		}
 	}
+
 	const [colores, setColores] = useState({
 		btn1: '#e84b1960',
 		btn2: '#ff050560',
@@ -94,7 +95,7 @@ const inicioSesion = ({navigation}) => {
 			</TouchableOpacity>
 		</SafeAreaView>
 	)
-}
+		}
 
 const styles = StyleSheet.create({
 	container: {

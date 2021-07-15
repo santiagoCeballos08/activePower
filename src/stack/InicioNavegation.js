@@ -58,6 +58,7 @@ const InicioNavigator = props => {
 					header: CustomHeader,
 				}}
 			/>
+		
 		</Stack.Navigator>
 	)
 }
