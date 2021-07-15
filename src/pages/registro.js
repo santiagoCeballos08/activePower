@@ -80,7 +80,7 @@ const Registro = ({ navigation }) => {
 				<InputRegistro
 					icon='user'
 					title='Nombre de usuario'
-					value={nombre}
+					value={user.nombre}
 					onChange={setNombre}
 					placeholder='nombre'
 					onChangeText = {(valor) => capInformacion('nombre', valor) }
@@ -88,7 +88,7 @@ const Registro = ({ navigation }) => {
 				<InputRegistro
 					icon='mail3'
 					title='Correo electronico'
-					value={correo}
+					value={user.email}
 					onChange={setCorreo}
 					placeholder='Correo'
 					onChangeText = {(valor) => capInformacion('email', valor) }
@@ -96,7 +96,7 @@ const Registro = ({ navigation }) => {
 				<InputRegistro
 					icon='lock'
 					title='Ingresa la Contraseña'
-					value={contraseña}
+					value={user.pass}
 					onChange={setContraseña}
 					placeholder='Contraseña'
 					secureTextEntry={true}
@@ -106,7 +106,7 @@ const Registro = ({ navigation }) => {
 				<InputRegistro
 					icon='lock'
 					title='Repita la contraseña'
-					value={repContraseña}
+					value={user.passR}
 					onChange={setRepContraseña}
 					placeholder='contraseña'
 					secureTextEntry={true}
