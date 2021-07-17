@@ -10,30 +10,38 @@ import {
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
-import firebase from '../../database/firebase'
+import * as firebase from 'firebase'
+
 
 const { width, height } = Dimensions.get('screen')
 
-const inicioSesion = ({}) => {
-	const [sesion, setSesion] = useState({
-		nombre: '',
-		contraseña: '',
-	})
+const inicioSesion = ({navigation}) => {
+	const [correo, setCorreo] = useState('')
+	const [contraseña, setContraseña] = useState('')
 
-	const info = (nombre, val) => {
-		setSesion({ ...user, [nombre]: val })
+	const [user, setUser] = useState({
+		email: '',
+		pass: '',
+	})
+	//CAPTURA DE INFORMACION
+	const capInformacion = (nombre, valor) => {
+		setUser({...user, [nombre]:valor})
 	}
-	const inicio = () => {
-		if (sesion.nombre == '' || sesion.contraseña == '') {
-			alert('porfavor introdusca las credenciales ')
-		} else {
-			const mensajes = []
-			firebase.db.collection('usuarios').onSnapshot(query => {
-				query.docs.forEach(doc => {
-					mensajes.push()
+	//FUNCION PARA VALIDACIO
+	const iniciarSesion = () => {
+		if (user.email == '' || user.pass == ''){
+			alert('por favor introduzca las credenciales')
+		}else {
+			firebase.default.auth().signInWithEmailAndPassword(user.email, user.pass)  .then((userCredential) => {
+				var user = userCredential.user;
+				console.log('entro')
+
 				})
-				setMensaje(mensajes)
-			})
+				.catch((error) => {
+					var errorCode = error.code;
+					var errorMessage = error.message;
+					alert('contraseña o correo no valido')
+				});
 		}
 	}
 
@@ -44,8 +52,6 @@ const inicioSesion = ({}) => {
 		bg2: '#FFAA0090',
 	})
 
-	const [nombre, setNombre] = useState('')
-	const [contraseña, setContraseña] = useState('')
 	return (
 		<SafeAreaView style={styles.container}>
 			{/* fondo del inicio */}
@@ -59,35 +65,31 @@ const inicioSesion = ({}) => {
 			<Text style={styles.title2}>Active Power</Text>
 
 			<View style={styles.containerInput}>
-				<InputRegistro
-					icon='user'
-					title='Nombre de usuario'
-					value={nombre}
-					onChange={setNombre}
-					placeholder='nombre'
-					onChangeText={val => info('nombre', val)}
+			<InputRegistro
+					icon='mail3'
+					title='Correo electronico'
+					value={user.email}
+					onChange={setCorreo}
+					placeholder='Correo'
+					onChangeText = {(valor) => capInformacion('email', valor) }
 				/>
-				<InputRegistro
+			<InputRegistro
 					icon='lock'
-					title='Ingresa la Contraseña'
-					value={contraseña}
+					title='insgrese una contraseña'
+					value={user.pass}
 					onChange={setContraseña}
-					placeholder='Contraseña'
+					placeholder='contraseña'
+					onChangeText = {(valor) => capInformacion('pass', valor) }
 					secureTextEntry={true}
-					onChangeText={val => info('constraseña', val)}
-				/>
+			/>
 			</View>
 
-			{/* <TouchableOpacity onPress={() => navigation.navigate('menu')}> */}
-			<TouchableOpacity onPress={() => validacion()}>
+			{/* <TouchableOpacity onPress={() => iniciarSesion()}> */}
+			<TouchableOpacity onPress={() => navigation.navigate('menu')}>
 				<LinearGradient colors={[colores.btn1, colores.btn2]} style={styles.boton}>
 					<Text style={styles.Text}>iniciar sesion</Text>
 				</LinearGradient>
 			</TouchableOpacity>
-
-			{
-				//todo melitico ps
-			}
 
 			<Text style={styles.text1}>¿no tienes cuenta?</Text>
 			<TouchableOpacity>
@@ -95,7 +97,7 @@ const inicioSesion = ({}) => {
 			</TouchableOpacity>
 		</SafeAreaView>
 	)
-}
+		}
 
 const styles = StyleSheet.create({
 	container: {

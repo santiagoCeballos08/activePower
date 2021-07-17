@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
-import firebase from '../../database/firebase'
+import * as firebase from 'firebase'
 import { useRef } from 'react'
 
 //comienzo de formulario
@@ -41,20 +41,29 @@ const Registro = ({ navigation }) => {
 	const capInformacion = (nombre, valor) => {
 		setUser({...user, [nombre]:valor})
 	}
-	const registarUsuario = async() => {
+	const registarUsuario = () => {
 		if (user.pass === user.passR){
 			if (user.nombre == '' || user.email == '' || user.pass == '') {
 				alert('porfavor rellenar los campos correspondientes')
 			} else {
-				await firebase.db.collection('usuarios').add({
-					nombre: user.nombre,
-					email: user.email,
-					pass: user.pass,
-				})
-				alert('registrado en active power')
-			}
-		}
+				firebase.default.auth().createUserWithEmailAndPassword(user.email, user.pass).then(() => {
+						console.log('User account created & signed in!');
+					})
+					.catch(error => {
+						if (error.code === 'auth/email-already-in-use') {
+							alert('el correo ya esta en uso!');
+						}
 
+						if (error.code === 'auth/invalid-email') {
+							alert('el correo no es valido!');
+						}
+
+						console.error(error);
+					})
+					alert('registrado en active power')
+			}
+			alert('la contraseñas no coinciden')
+		}
 	}
 
 	return (
@@ -71,7 +80,7 @@ const Registro = ({ navigation }) => {
 				<InputRegistro
 					icon='user'
 					title='Nombre de usuario'
-					value={nombre}
+					value={user.nombre}
 					onChange={setNombre}
 					placeholder='nombre'
 					onChangeText = {(valor) => capInformacion('nombre', valor) }
@@ -79,8 +88,7 @@ const Registro = ({ navigation }) => {
 				<InputRegistro
 					icon='mail3'
 					title='Correo electronico'
-					value={correo}
-					ss
+					value={user.email}
 					onChange={setCorreo}
 					placeholder='Correo'
 					onChangeText = {(valor) => capInformacion('email', valor) }
@@ -88,22 +96,22 @@ const Registro = ({ navigation }) => {
 				<InputRegistro
 					icon='lock'
 					title='Ingresa la Contraseña'
-					value={contraseña}
+					value={user.pass}
 					onChange={setContraseña}
 					placeholder='Contraseña'
 					secureTextEntry={true}
 					onChangeText = {(valor) => capInformacion('pass', valor) }
-					secureTextEntry={true}
+
 				/>
 				<InputRegistro
 					icon='lock'
 					title='Repita la contraseña'
-					value={repContraseña}
+					value={user.passR}
 					onChange={setRepContraseña}
 					placeholder='contraseña'
 					secureTextEntry={true}
 					onChangeText = {(valor) => capInformacion('passR', valor) }
-					secureTextEntry ={true}
+
 				/>
 			</View>
 			{/* onPress={() => navigation.navigate('menu')} */}

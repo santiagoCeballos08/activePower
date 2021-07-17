@@ -6,6 +6,7 @@ import { Text, View, StyleSheet, Image, Dimensions } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Colors } from 'react-native-paper'
 import { LinearGradient } from 'expo-linear-gradient'
+import firebase from '../../database/firebase'
 //obtencion de tamaño de la ventana
 
 const { width, height } = Dimensions.get('screen')
