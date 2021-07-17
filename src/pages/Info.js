@@ -1,11 +1,10 @@
 /*
 ---- importes utilizados ----
 */
-import { Video } from 'expo-av'
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { Dimensions } from 'react-native'
-import { View, Text, Image, StyleSheet, Linking, Button } from 'react-native'
+import { View, Text, Image, StyleSheet, Linking } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { Colors } from 'react-native-paper'
 import { LinearGradient } from 'expo-linear-gradient'

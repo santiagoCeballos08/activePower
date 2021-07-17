@@ -1,7 +1,7 @@
 /*
 ---- importes utilizados ----
 */
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 import { Dimensions } from 'react-native'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -12,9 +12,6 @@ const { width, height } = Dimensions.get('screen')
 ---- renderizado de la lista de la vista Gratis
 */
 const ListaInfo = memo(({ navigation, data }) => {
-	// useEffect(() => {
-	// 	console.log(data)
-	// })
 	return (
 		<View>
 			{data.map(data => {

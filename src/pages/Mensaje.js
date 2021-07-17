@@ -1,8 +1,8 @@
+//importes necesarios
 import React from 'react'
 import { Dimensions } from 'react-native'
 import { TouchableOpacity } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
-//import { Button } from 'react-native-elements'
 import { Colors } from 'react-native-paper'
 import ListaChatEntrenador from '../components/ListaChatEntrenador'
 
@@ -49,7 +49,7 @@ const RenderItem = ({ name, online, navigation }) => {
 	)
 }
 
-//datos de prueba h
+//datos de carrousel
 const data = [
 	{
 		nombre: 'Daniel Stiven Agudelo',
@@ -62,10 +62,6 @@ const data = [
 	{
 		nombre: 'Cristian Echeverri',
 		img: 'https://duemosli.blogs.uv.es/files/2019/01/Requisitos-estudios-y-cursos-para-ser-entrenador-de-f%C3%BAtbol.jpg',
-	},
-	{
-		nombre: 'Johan Stiven Murillo',
-		img: 'https://www.clikisalud.net/wp-content/uploads/2019/08/consejos-top-entrenadores-personales-hacer-ejercicio.jpg',
 	},
 ]
 

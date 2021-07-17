@@ -1,3 +1,4 @@
+//importes necesarios
 import React from 'react'
 import { View, Text, StyleSheet, Dimensions } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
@@ -6,6 +7,7 @@ import Lista from '../components/Lista'
 
 const { width, height } = Dimensions.get('screen')
 
+//vista premium
 const Premium = ({ navigation, route }) => {
 	return (
 		<ScrollView style={styles.scroll}>
@@ -25,6 +27,7 @@ const Premium = ({ navigation, route }) => {
 	)
 }
 
+//estilos
 const styles = StyleSheet.create({
 	scroll: {
 		backgroundColor: '#fff',

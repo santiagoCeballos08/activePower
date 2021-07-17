@@ -26,7 +26,7 @@ const InfoRutina = ({ navigation, route }) => {
 }
 
 //datos de prueba para mostrar rutinas
-const datas = [
+/*const datas = [
 	{
 		id: 1,
 		img: 'https://media.istockphoto.com/photos/african-american-man-doing-push-up-picture-id154370462',
@@ -35,7 +35,7 @@ const datas = [
 		exp: 'Toma aire profundamente y contrae al mismo tiempo la espalda, los glúteos y los omóplatos fijos.',
 		exp2: 'Para un agarre correcto en el press de banca, sujeta la barra a la altura de los hombros Las muñecas se mantienen rectas y las manos tienen que rodear la barra para un agarre firme.',
 	},
-]
+]*/
 
 //estilos de la vista
 const styles = StyleSheet.create({

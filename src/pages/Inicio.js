@@ -2,7 +2,7 @@
 ---- importes utilizados ----
 */
 import React from 'react'
-import { Text, View, TextInput, StyleSheet, Image, Dimensions } from 'react-native'
+import { Text, View, StyleSheet, Image, Dimensions } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Colors } from 'react-native-paper'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -36,7 +36,7 @@ const Inicio = ({ navigation }) => {
 		</View>
 	)
 }
-
+//estilos
 const styles = StyleSheet.create({
 	container: {
 		position: 'absolute',

@@ -1,3 +1,4 @@
+//importes necesarios
 import React from 'react'
 import { Dimensions } from 'react-native'
 import { View, StyleSheet, Text, Image } from 'react-native'
@@ -5,6 +6,7 @@ import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler'
 
 const { width, height } = Dimensions.get('window')
 
+//visualidado de la lista de los usuarios
 const ListaUsers = ({ data, navigation }) => {
 	return (
 		<ScrollView style={{ height: height - 10, backgroundColor: '#fff' }}>
@@ -40,6 +42,7 @@ const RenderItem = ({ navigation, img, nombre, email, pass, premium }) => {
 	)
 }
 
+//estilos
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#fff',

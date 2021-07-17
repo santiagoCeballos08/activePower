@@ -1,22 +1,22 @@
 /*
 ---- importes utilizados ----
 */
-import React, { useState } from 'react'
+import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { StyleSheet, Text, View, TextInput } from 'react-native'
+import { View } from 'react-native'
 import Inicio from '../pages/Inicio'
 import Registro from '../pages/registro'
 import MenuHamburguesa from '../components/MenuHamburguesa'
 import inicioSesion from '../pages/InicioSesion'
-import firebase from '../../database/firebase'
 
 //instanciacion de stack
 const Stack = createStackNavigator()
 
 /*
----- stack Inicio ----
+---- stack de pantallas para la vista inicio ----
 */
 const InicioNavigator = props => {
+	//creacion del header personalizado para que quede vacio
 	const CustomHeader = () => {
 		return <View></View>
 	}
@@ -52,7 +52,6 @@ const InicioNavigator = props => {
 			<Stack.Screen
 				component={inicioSesion}
 				name='InicioSesion'
-				/* initialParams={estado,funcDelestado} */
 				options={{
 					title: 'InicioSesion',
 					header: CustomHeader,
@@ -61,16 +60,5 @@ const InicioNavigator = props => {
 		</Stack.Navigator>
 	)
 }
-
-const data = []
-
-//estilos de stack gratis
-const styles = StyleSheet.create({
-	bar: {
-		height: 0,
-		position: 'relative',
-		display: 'flex',
-	},
-})
 
 export default InicioNavigator

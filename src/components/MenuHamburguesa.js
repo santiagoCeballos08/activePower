@@ -10,10 +10,7 @@ import CalculaMasa from '../pages/CalcularMasa'
 import CrearRutina from '../pages/CrearRutina'
 import BuscarUsuarioNavigation from '../stack/BuscarUsuarioNavigator'
 import { NavigationContainer } from '@react-navigation/native'
-import { LogBox, Text, View } from 'react-native'
-import { Dimensions } from 'react-native'
-
-const { width, height } = Dimensions.get('window')
+import { LogBox, Text } from 'react-native'
 
 LogBox.ignoreLogs([
 	'Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle',

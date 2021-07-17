@@ -1,17 +1,19 @@
 /*importes de librerias*/
 import React from 'react'
-import { Dimensions } from 'react-native'
 import { View } from 'react-native'
 import { StyleSheet } from 'react-native'
-import { TextInput, Text } from 'react-native'
 import Icon from './Icon'
 import { Input } from 'react-native-elements'
 
-const { width, height } = Dimensions.get('window')
-
-
-	export	const InputRegistro = ({ icon, title, value, onChange, placeholder,onChangeText,secureTextEntry }) => {
-
+export const InputRegistro = ({
+	icon,
+	title,
+	value,
+	onChange,
+	placeholder,
+	onChangeText,
+	secureTextEntry,
+}) => {
 	return (
 		<View style={styles.container}>
 			<Input
@@ -25,12 +27,11 @@ const { width, height } = Dimensions.get('window')
 					onChange(text)
 				}}
 				placeholder={placeholder}
-				onChangeText ={onChangeText}
+				onChangeText={onChangeText}
 				secureTextEntry={secureTextEntry}
 			/>
 		</View>
 	)
-
 }
 
 /*<TextInput

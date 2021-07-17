@@ -1,3 +1,4 @@
+//importes necesatios
 import React, { useState } from 'react'
 import {
 	Dimensions,
@@ -6,7 +7,6 @@ import {
 	Text,
 	TouchableOpacity,
 	View,
-	TextInput,
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
@@ -36,6 +36,7 @@ const inicioSesion = ({}) => {
 			})
 		}
 	}
+
 	const [colores, setColores] = useState({
 		btn1: '#e84b1960',
 		btn2: '#ff050560',

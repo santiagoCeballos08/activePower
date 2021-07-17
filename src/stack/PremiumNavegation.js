@@ -16,6 +16,7 @@ const Stack = createStackNavigator()
 ---- stack Premium ----
 */
 const PremiumNavigator = ({ navigation, route }) => {
+	/* se conecta con la db para traer todos los datos de las rutinas */
 	const [data, setData] = useState()
 	//listar rutinas
 	const datas = []
@@ -25,6 +26,7 @@ const PremiumNavigator = ({ navigation, route }) => {
 		})
 		setData(datas)
 	})
+
 	if (data) {
 		return (
 			<Stack.Navigator>
@@ -55,6 +57,7 @@ const PremiumNavigator = ({ navigation, route }) => {
 	}
 }
 
+//estilos
 const styles = StyleSheet.create({
 	text: {
 		marginLeft: 50,

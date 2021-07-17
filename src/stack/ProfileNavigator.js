@@ -1,8 +1,7 @@
 /*
 ---- importes utilizados ----
 */
-import React, { useState } from 'react'
-//import HeaderStack from '../components/HeaderStack'
+import React from 'react'
 import Cuenta from '../pages/Cuenta'
 import { createStackNavigator } from '@react-navigation/stack'
 

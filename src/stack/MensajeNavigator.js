@@ -4,11 +4,10 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Mensaje from '../pages/Mensaje'
-//import Chat from '../pages/Chat'
 import { StyleSheet, Text } from 'react-native'
 import Icon from '../components/Icon'
 import { IconButton, Colors } from 'react-native-paper'
-import Chat from '../pages/Chat'
+// import Chat from '../pages/Chat'
 
 //instanciacion de stack
 const Stack = createStackNavigator()
@@ -39,17 +38,17 @@ const MensajeNavigator = ({ navigation, route }) => {
 	)
 }
 
-//datos de prueba
+//datos de salas
 
 const data = [
 	{
 		nombre: 'Sala 1',
-		online: 40,
+		online: 0,
 		id: 1,
 	},
 	{
 		nombre: 'Sala 2',
-		online: 12,
+		online: 0,
 		id: 2,
 	},
 ]

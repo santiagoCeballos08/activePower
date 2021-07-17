@@ -18,9 +18,10 @@ const Stack = createStackNavigator()
 ---- stack gratis ----
 */
 const GratisNavigator = ({ navigation, route }) => {
+	/*se conecta con la db para praer los mensajes y los datos de las rutinas */
 	const [mensaje, setMensaje] = useState()
 	const [data, setData] = useState()
-	//const [showMenu, setShowMenu] = useState(false)
+	const [showMenu, setShowMenu] = useState(false)
 
 	//listar mensajes de la db
 	const mensajes = []
@@ -84,6 +85,7 @@ const GratisNavigator = ({ navigation, route }) => {
 	}
 }
 
+//estilos
 const styles = StyleSheet.create({
 	text: {
 		marginLeft: 50,

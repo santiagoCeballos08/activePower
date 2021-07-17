@@ -14,7 +14,9 @@ const Stack = createStackNavigator()
 ---- stack gratis ----
 */
 const BuscarUsuarioNavigation = ({ navigation, route }) => {
-	//estado de los usuarios
+	/* se conecta con la db para traer todos los datos de los usuaios
+	   guardarlos en un arreglo para luego guardarlo en el estado */
+	//datos de los usuarios
 	const [user, setUsers] = useState()
 	//trae todos los usuarios
 	const users = []
@@ -47,6 +49,7 @@ const BuscarUsuarioNavigation = ({ navigation, route }) => {
 	}
 }
 
+//estilos
 const styles = StyleSheet.create({
 	text: {
 		marginLeft: 50,
