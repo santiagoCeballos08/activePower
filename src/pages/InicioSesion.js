@@ -11,12 +11,15 @@ import {
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
 import * as firebase from 'firebase'
+import { Alert } from 'react-native'
+import Alerta from '../components/Alerta'
 
 const { width, height } = Dimensions.get('screen')
 
 const inicioSesion = ({ navigation }) => {
 	const [correo, setCorreo] = useState('')
 	const [contraseña, setContraseña] = useState('')
+	const [msg, setMsg] = useState()
 
 	const [user, setUser] = useState({
 		email: '',
@@ -29,9 +32,7 @@ const inicioSesion = ({ navigation }) => {
 	//FUNCION PARA VALIDACIO
 	const iniciarSesion = () => {
 		if (user.email == '' || user.pass == '') {
-			Alert.alert('Error!', 'por favor introduzca las credenciales', [
-				{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
-			])
+			setMsg('por favor introduzca las credenciales')
 		} else {
 			firebase.default
 				.auth()
@@ -43,9 +44,7 @@ const inicioSesion = ({ navigation }) => {
 				.catch(error => {
 					var errorCode = error.code
 					var errorMessage = error.message
-					Alert.alert('Error!', 'correo o contraseña no valido', [
-						{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
-					])
+					setMsg('correo o contraseña no valido')
 				})
 		}
 	}
@@ -57,8 +56,12 @@ const inicioSesion = ({ navigation }) => {
 		bg2: '#FFAA0090',
 	})
 
+	const Selector = ({ msg }) => {
+		return msg ? <Alerta text={msg} /> : <View></View>
+	}
 	return (
 		<SafeAreaView style={styles.container}>
+			<Selector msg={msg} />
 			{/* fondo del inicio */}
 			<LinearGradient
 				colors={[colores.bg1, colores.bg2]}

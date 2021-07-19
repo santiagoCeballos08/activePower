@@ -62,6 +62,4 @@ const InicioNavigator = props => {
 }
 const data = []
 
-const data=[]
-
 export default InicioNavigator
