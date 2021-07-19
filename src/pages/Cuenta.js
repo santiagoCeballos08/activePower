@@ -12,45 +12,58 @@ import {
 	TextInput,
 	Image,
 } from 'react-native'
+import {Colors} from 'react-native-paper'
 import { Input } from 'react-native-elements'
-import firebase from '../../database/firebase'
+import * as firebase from 'firebase'
 
-//agregar 1 registro a la coleccion usuario
-const nuevoUsuario = async () => {
-	try {
-		await firebase.db.collection('usuario').add({
-			nombre: 'prueba',
-			apellido: 'rodrigo',
-			contraseña: '123',
-		})
-	} catch (error) {
-		console.log(error)
-	}
-}
-
-//delete
-const borrarUsuario = () => {}
-
-//listar
-const listarUsuario = () => {
-	try {
-	} catch (e) {
-		console.log(e)
-	}
-}
 /*
 ---- vista de cuenta ----
 */
+//estados para los datos de usuarios
 const Cuenta = () => {
-	const [usuarios, setUsuarios] = useState([])
+	//toma de informacion
+	const [usuario, setUsuario] = useState({
+		contraseña: '',
+		email: '',
+		nombre: '',
+	})
 
-	useEffect(() => {
-		firebase.db.collection('usuario').onSnapshot(query => {
-			query.docs.forEach(doc => {
-				console.log(doc.data())
-			})
-		})
-	}, [])
+	const capturaInfo = (nombre, valor) => {
+		setUsuario({ ...usuario, [nombre]: valor })
+	}
+
+	const updateUser = () => {
+		if (usuario.contraseña !== '' && usuario.email !== '' && usuario.nombre !== '') {
+			user.updateProfile({
+					displayName: usuario.nombre,
+				})
+				.then(() => {
+					user.updateEmail(usuario.email)
+						.then(() => {
+							user.updatePassword(usuario.contraseña)
+								.then(() => alert('datos modificados correctamente'))
+								.catch(e => alert(e))
+						})
+						.catch(e => alert(e))
+				})
+				.catch(e => alert(e))
+		} else {
+			aler('ingrese todos los datos')
+		}
+	}
+
+	const deleteUser = () => {
+		user.delete()
+			.then(() => alert('usuario eliminado'))
+			.catch(e => alert(e))
+	}
+
+	//mandar informacion
+	// const [datosUsuario, setDatosUsuario] = useState([])
+
+	//traer todos los datos de los usuarios
+	const user = firebase.default.auth().currentUser
+
 	return (
 		<View style={styles.container}>
 			<Image
@@ -64,22 +77,28 @@ const Cuenta = () => {
 				<Text style={styles.texto}>editar</Text>
 
 				<TextInput
-					placeholder={'nombre'}
+					placeholder={user.displayName ? user.displayName : 'nombre'}
 					placeholderTextColor='#DCB74E'
 					style={styles.input}
+					onChangeText={valor => capturaInfo('nombre', valor)}
 				></TextInput>
 				<TextInput
 					placeholder={'contraseña'}
 					placeholderTextColor='#DCB74E'
 					style={styles.input}
+					onChangeText={valor => capturaInfo('contraseña', valor)}
 				></TextInput>
 				<TextInput
-					placeholder={'email'}
+					placeholder={user.email}
 					placeholderTextColor='#DCB74E'
 					style={styles.input}
+					onChangeText={valor => capturaInfo('email', valor)}
 				></TextInput>
-				<TouchableOpacity style={styles.editar}>
+				<TouchableOpacity style={styles.editar} onPress={() => updateUser()}>
 					<Text>editar</Text>
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.eliminar} onPress={() => deleteUser()}>
+					<Text>eliminar</Text>
 				</TouchableOpacity>
 			</View>
 		</View>
@@ -96,7 +115,7 @@ const styles = StyleSheet.create({
 	img: {
 		height: 200,
 		width: 200,
-		marginBottom: 100,
+		marginBottom: 50,
 	},
 	info: {
 		display: 'flex',
@@ -139,6 +158,18 @@ const styles = StyleSheet.create({
 		alignSelf: 'flex-end',
 		marginRight: 10,
 	},
+	eliminar:{
+		backgroundColor: Colors.red400,
+		height: 30,
+		width: 80,
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderColor: 'black',
+		borderWidth: 1,
+		borderRadius: 10,
+		alignSelf: 'flex-end',
+		marginRight: 10,
+	}
 })
 
 export default Cuenta

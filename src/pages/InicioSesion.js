@@ -89,15 +89,15 @@ const inicioSesion = ({ navigation }) => {
 				/>
 			</View>
 
-			{/* <TouchableOpacity onPress={() => iniciarSesion()}> */}
-			<TouchableOpacity onPress={() => navigation.navigate('menu')}>
+			<TouchableOpacity onPress={() => iniciarSesion()}>
+				{/* <TouchableOpacity onPress={() => navigation.navigate('menu')}> */}
 				<LinearGradient colors={[colores.btn1, colores.btn2]} style={styles.boton}>
 					<Text style={styles.Text}>iniciar sesion</Text>
 				</LinearGradient>
 			</TouchableOpacity>
 
 			<Text style={styles.text1}>¿no tienes cuenta?</Text>
-			<TouchableOpacity>
+			<TouchableOpacity onPress={() => navigation.navigate('registro')}>
 				<Text style={styles.text2}>registrate</Text>
 			</TouchableOpacity>
 		</SafeAreaView>

@@ -25,14 +25,12 @@ const Registro = ({ navigation }) => {
 		bg1: '#D9387890',
 		bg2: '#FFAA0090',
 	})
-	const [nombre, setNombre] = useState('')
 	const [correo, setCorreo] = useState('')
 	const [contraseña, setContraseña] = useState('')
 	const [repContraseña, setRepContraseña] = useState('')
 
 	//estado para el formulario
 	const [user, setUser] = useState({
-		nombre: '',
 		email: '',
 		pass: '',
 		passR: '',
@@ -135,7 +133,7 @@ const Registro = ({ navigation }) => {
 
 			<View>
 				<Text style={styles.text1}>¿ya tienes cuenta?</Text>
-				<TouchableOpacity>
+				<TouchableOpacity onPress={() => navigation.navigate('InicioSesion')}>
 					<Text style={styles.text2}>inicia sesion</Text>
 				</TouchableOpacity>
 			</View>

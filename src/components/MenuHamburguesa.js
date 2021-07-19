@@ -4,10 +4,9 @@
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import TabNavigator from '../TabNavigator'
-// import DrawerContentenido from '../components/Drawer/DrawerContent'
+ import DrawerContentenido from '../components/Drawer/DrawerContent'
 import ModoPremium from '../pages/ModoPremium'
 import CalculaMasa from '../pages/CalcularMasa'
-import CrearRutina from '../pages/CrearRutina'
 import BuscarUsuarioNavigation from '../stack/BuscarUsuarioNavigator'
 import { NavigationContainer } from '@react-navigation/native'
 import { LogBox, Text } from 'react-native'
@@ -25,7 +24,7 @@ const Drawer = createDrawerNavigator()
 const MenuHamburguesa = () => (
 	<NavigationContainer independent={true}>
 		<Drawer.Navigator
-			// drawerContent={props => <DrawerContentenido {...props} />}
+			drawerContent={props => <DrawerContentenido {...props} />}
 			drawerContentOptions={{
 				activeTintColor: '#FF8F09',
 			}}
@@ -59,7 +58,7 @@ const MenuHamburguesa = () => (
 					),
 				}}
 			></Drawer.Screen>
-			<Drawer.Screen name='CrearRutina' component={CrearRutina}></Drawer.Screen>
+
 			<Drawer.Screen
 				name='BuscarUsuario'
 				component={BuscarUsuarioNavigation}

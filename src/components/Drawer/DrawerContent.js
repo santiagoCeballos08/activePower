@@ -26,11 +26,6 @@ const DrawerContentenido = ({ navigation }) => {
 					icon={() => <Image source={require('../../img/indice-de-masa-corporal.png')} />}
 				/>
 				<Drawer.Item
-					label='Crear Rutina'
-					icon={() => <Image source={require('../../img/fuerte.png')} />}
-					onPress={() => navegaition.navegate('CrearRutina')}
-				/>
-				<Drawer.Item
 					label='Buscar Usuario'
 					icon={() => <Image source={require('../../img/candidato.png')} />}
 					onPress={() => navegaition.navegate('BuscarUsuario')}
