@@ -8,12 +8,12 @@ import {
 	Text,
 	TouchableOpacity,
 	View,
-	TextInput,
+	Alert,
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
 import * as firebase from 'firebase'
-import { useRef } from 'react'
+import AwesomeAlert from 'react-native-awesome-alerts'
 
 //comienzo de formulario
 const { width, height } = Dimensions.get('screen')
@@ -35,34 +35,48 @@ const Registro = ({ navigation }) => {
 		nombre: '',
 		email: '',
 		pass: '',
-		passR:'',
+		passR: '',
 	})
 	//capturar la informacion
 	const capInformacion = (nombre, valor) => {
-		setUser({...user, [nombre]:valor})
+		setUser({ ...user, [nombre]: valor })
 	}
+
 	const registarUsuario = () => {
-		if (user.pass === user.passR){
+		if (user.pass === user.passR) {
 			if (user.nombre == '' || user.email == '' || user.pass == '') {
-				alert('porfavor rellenar los campos correspondientes')
+				Alert.alert('Error!', 'porfavor rellenar los campos correspondientes', [
+					{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
+				])
 			} else {
-				firebase.default.auth().createUserWithEmailAndPassword(user.email, user.pass).then(() => {
-						console.log('User account created & signed in!');
+				firebase.default
+					.auth()
+					.createUserWithEmailAndPassword(user.email, user.pass)
+					.then(() => {
+						console.log('User account created & signed in!')
 					})
 					.catch(error => {
 						if (error.code === 'auth/email-already-in-use') {
-							alert('el correo ya esta en uso!');
+							Alert.alert('Error!', 'el correo ya esta en uso!', [
+								{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
+							])
 						}
 
 						if (error.code === 'auth/invalid-email') {
-							alert('el correo no es valido!');
+							Alert.alert('Error!', 'el correo no es valido!', [
+								{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
+							])
 						}
 
-						console.error(error);
+						console.error(error)
 					})
-					alert('registrado en active power')
+				Alert.alert('Error!', 'registrado en active power', [
+					{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
+				])
 			}
-			alert('la contraseñas no coinciden')
+			Alert.alert('Error!', 'la contraseñas no coinciden', [
+				{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
+			])
 		}
 	}
 
@@ -83,7 +97,7 @@ const Registro = ({ navigation }) => {
 					value={user.nombre}
 					onChange={setNombre}
 					placeholder='nombre'
-					onChangeText = {(valor) => capInformacion('nombre', valor) }
+					onChangeText={valor => capInformacion('nombre', valor)}
 				/>
 				<InputRegistro
 					icon='mail3'
@@ -91,7 +105,7 @@ const Registro = ({ navigation }) => {
 					value={user.email}
 					onChange={setCorreo}
 					placeholder='Correo'
-					onChangeText = {(valor) => capInformacion('email', valor) }
+					onChangeText={valor => capInformacion('email', valor)}
 				/>
 				<InputRegistro
 					icon='lock'
@@ -100,8 +114,7 @@ const Registro = ({ navigation }) => {
 					onChange={setContraseña}
 					placeholder='Contraseña'
 					secureTextEntry={true}
-					onChangeText = {(valor) => capInformacion('pass', valor) }
-
+					onChangeText={valor => capInformacion('pass', valor)}
 				/>
 				<InputRegistro
 					icon='lock'
@@ -110,12 +123,11 @@ const Registro = ({ navigation }) => {
 					onChange={setRepContraseña}
 					placeholder='contraseña'
 					secureTextEntry={true}
-					onChangeText = {(valor) => capInformacion('passR', valor) }
-
+					onChangeText={valor => capInformacion('passR', valor)}
 				/>
 			</View>
 			{/* onPress={() => navigation.navigate('menu')} */}
-			<TouchableOpacity onPress = {() => registarUsuario()}>
+			<TouchableOpacity onPress={() => registarUsuario()}>
 				<LinearGradient colors={[colores.btn1, colores.btn2]} style={styles.boton}>
 					<Text style={styles.Text}>Registrar usuario</Text>
 				</LinearGradient>

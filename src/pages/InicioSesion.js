@@ -12,10 +12,9 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
 import * as firebase from 'firebase'
 
-
 const { width, height } = Dimensions.get('screen')
 
-const inicioSesion = ({navigation}) => {
+const inicioSesion = ({ navigation }) => {
 	const [correo, setCorreo] = useState('')
 	const [contraseña, setContraseña] = useState('')
 
@@ -25,23 +24,29 @@ const inicioSesion = ({navigation}) => {
 	})
 	//CAPTURA DE INFORMACION
 	const capInformacion = (nombre, valor) => {
-		setUser({...user, [nombre]:valor})
+		setUser({ ...user, [nombre]: valor })
 	}
 	//FUNCION PARA VALIDACIO
 	const iniciarSesion = () => {
-		if (user.email == '' || user.pass == ''){
-			alert('por favor introduzca las credenciales')
-		}else {
-			firebase.default.auth().signInWithEmailAndPassword(user.email, user.pass)  .then((userCredential) => {
-				var user = userCredential.user;
-				console.log('entro')
-
+		if (user.email == '' || user.pass == '') {
+			Alert.alert('Error!', 'por favor introduzca las credenciales', [
+				{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
+			])
+		} else {
+			firebase.default
+				.auth()
+				.signInWithEmailAndPassword(user.email, user.pass)
+				.then(userCredential => {
+					var user = userCredential.user
+					console.log('entro')
 				})
-				.catch((error) => {
-					var errorCode = error.code;
-					var errorMessage = error.message;
-					alert('contraseña o correo no valido')
-				});
+				.catch(error => {
+					var errorCode = error.code
+					var errorMessage = error.message
+					Alert.alert('Error!', 'correo o contraseña no valido', [
+						{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
+					])
+				})
 		}
 	}
 
@@ -65,23 +70,23 @@ const inicioSesion = ({navigation}) => {
 			<Text style={styles.title2}>Active Power</Text>
 
 			<View style={styles.containerInput}>
-			<InputRegistro
+				<InputRegistro
 					icon='mail3'
 					title='Correo electronico'
 					value={user.email}
 					onChange={setCorreo}
 					placeholder='Correo'
-					onChangeText = {(valor) => capInformacion('email', valor) }
+					onChangeText={valor => capInformacion('email', valor)}
 				/>
-			<InputRegistro
+				<InputRegistro
 					icon='lock'
 					title='insgrese una contraseña'
 					value={user.pass}
 					onChange={setContraseña}
 					placeholder='contraseña'
-					onChangeText = {(valor) => capInformacion('pass', valor) }
+					onChangeText={valor => capInformacion('pass', valor)}
 					secureTextEntry={true}
-			/>
+				/>
 			</View>
 
 			{/* <TouchableOpacity onPress={() => iniciarSesion()}> */}
@@ -97,7 +102,7 @@ const inicioSesion = ({navigation}) => {
 			</TouchableOpacity>
 		</SafeAreaView>
 	)
-		}
+}
 
 const styles = StyleSheet.create({
 	container: {

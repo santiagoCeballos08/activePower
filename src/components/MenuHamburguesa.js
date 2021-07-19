@@ -35,7 +35,7 @@ const MenuHamburguesa = () => (
 				name='ModoPremium'
 				component={ModoPremium}
 				options={{
-					headerShown: true,
+					headerShown: false,
 					headerTitle: () => (
 						<Text
 							style={{ marginLeft: 50, marginTop: 12, fontWeight: 'bold', fontSize: 18 }}
