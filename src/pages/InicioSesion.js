@@ -19,7 +19,7 @@ const { width, height } = Dimensions.get('screen')
 const inicioSesion = ({ navigation }) => {
 	const [correo, setCorreo] = useState('')
 	const [contraseña, setContraseña] = useState('')
-	const [msg, setMsg] = useState()
+	const [msg, setMsg] = useState('')
 
 	const [user, setUser] = useState({
 		email: '',
@@ -39,7 +39,7 @@ const inicioSesion = ({ navigation }) => {
 				.signInWithEmailAndPassword(user.email, user.pass)
 				.then(userCredential => {
 					var user = userCredential.user
-					console.log('entro')
+					navigation.navigate('menu')
 				})
 				.catch(error => {
 					var errorCode = error.code
@@ -56,12 +56,17 @@ const inicioSesion = ({ navigation }) => {
 		bg2: '#FFAA0090',
 	})
 
-	const Selector = ({ msg }) => {
-		return msg ? <Alerta text={msg} /> : <View></View>
+	const Selector = ({ msg,setMsg }) => {
+		if(msg !== ''){
+			const aler= msg
+			return <Alerta msg={aler} setMsg={setMsg}/>
+		}else{
+			return <View></View>
+		}
 	}
 	return (
 		<SafeAreaView style={styles.container}>
-			<Selector msg={msg} />
+			<Selector msg={msg} setMsg={setMsg} />
 			{/* fondo del inicio */}
 			<LinearGradient
 				colors={[colores.bg1, colores.bg2]}

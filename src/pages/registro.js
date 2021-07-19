@@ -13,7 +13,7 @@ import {
 import { LinearGradient } from 'expo-linear-gradient'
 import { InputRegistro } from '../components/InputRegistro'
 import * as firebase from 'firebase'
-import AwesomeAlert from 'react-native-awesome-alerts'
+import Alerta from '../components/Alerta'
 
 //comienzo de formulario
 const { width, height } = Dimensions.get('screen')
@@ -28,24 +28,25 @@ const Registro = ({ navigation }) => {
 	const [correo, setCorreo] = useState('')
 	const [contraseña, setContraseña] = useState('')
 	const [repContraseña, setRepContraseña] = useState('')
-
+	const [msg,setMsg]= useState('')
 	//estado para el formulario
 	const [user, setUser] = useState({
 		email: '',
 		pass: '',
 		passR: '',
 	})
+
 	//capturar la informacion
 	const capInformacion = (nombre, valor) => {
 		setUser({ ...user, [nombre]: valor })
 	}
 
 	const registarUsuario = () => {
-		if (user.pass === user.passR) {
+	
 			if (user.nombre == '' || user.email == '' || user.pass == '') {
-				Alert.alert('Error!', 'porfavor rellenar los campos correspondientes', [
-					{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
-				])
+				setMsg('porfavor rellenar los campos correspondientes')
+			} else if(user.pass !== user.passR){
+				setMsg('la contraseñas no coinciden')
 			} else {
 				firebase.default
 					.auth()
@@ -55,31 +56,33 @@ const Registro = ({ navigation }) => {
 					})
 					.catch(error => {
 						if (error.code === 'auth/email-already-in-use') {
-							Alert.alert('Error!', 'el correo ya esta en uso!', [
-								{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
-							])
+							setMsg('el correo ya esta en uso!')
 						}
 
 						if (error.code === 'auth/invalid-email') {
-							Alert.alert('Error!', 'el correo no es valido!', [
-								{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
-							])
+							setMsg('el correo no es valido!')
 						}
 
 						console.error(error)
 					})
-				Alert.alert('Error!', 'registrado en active power', [
+				Alert.alert('bien!', 'registrado en active power', [
 					{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
 				])
 			}
-			Alert.alert('Error!', 'la contraseñas no coinciden', [
-				{ text: 'Okey', onPress: () => console.log('alerta cerrada') },
-			])
+	}
+
+	const Selector = ({ msg,setMsg }) => {
+		if(msg !== ''){
+			const aler= msg
+			return <Alerta msg={aler} setMsg={setMsg}/>
+		}else{
+			return <View></View>
 		}
 	}
 
 	return (
 		<SafeAreaView style={styles.container}>
+			<Selector msg={msg} setMsg={setMsg} />
 			<LinearGradient
 				colors={[colores.bg1, colores.bg2]}
 				style={styles.fondo}
@@ -89,14 +92,7 @@ const Registro = ({ navigation }) => {
 			<Text style={styles.title}> Registrate con </Text>
 			<Text style={styles.title2}>Active Power</Text>
 			<View style={styles.containerInput}>
-				<InputRegistro
-					icon='user'
-					title='Nombre de usuario'
-					value={user.nombre}
-					onChange={setNombre}
-					placeholder='nombre'
-					onChangeText={valor => capInformacion('nombre', valor)}
-				/>
+
 				<InputRegistro
 					icon='mail3'
 					title='Correo electronico'
