@@ -25,45 +25,46 @@ const Registro = ({ navigation }) => {
 		bg1: '#D9387890',
 		bg2: '#FFAA0090',
 	})
-	const [nombre, setNombre] = useState('')
 	const [correo, setCorreo] = useState('')
 	const [contraseña, setContraseña] = useState('')
 	const [repContraseña, setRepContraseña] = useState('')
 
 	//estado para el formulario
 	const [user, setUser] = useState({
-		nombre: '',
 		email: '',
 		pass: '',
-		passR:'',
+		passR: '',
 	})
 	//capturar la informacion
 	const capInformacion = (nombre, valor) => {
-		setUser({...user, [nombre]:valor})
+		setUser({ ...user, [nombre]: valor })
 	}
 	const registarUsuario = () => {
-		if (user.pass === user.passR){
-			if (user.nombre == '' || user.email == '' || user.pass == '') {
+			if (user.email == '' || user.pass == '') {
 				alert('porfavor rellenar los campos correspondientes')
-			} else {
-				firebase.default.auth().createUserWithEmailAndPassword(user.email, user.pass).then(() => {
-						console.log('User account created & signed in!');
+			} else if (user.pass !== user.passR) {
+				alert('la contraseñas no coinciden')
+			}else {
+				firebase.default
+					.auth()
+					.createUserWithEmailAndPassword(user.email, user.pass)
+					.then(() => {
+						console.log('User account created & signed in!')
 					})
 					.catch(error => {
 						if (error.code === 'auth/email-already-in-use') {
-							alert('el correo ya esta en uso!');
+							alert('el correo ya esta en uso!')
 						}
 
 						if (error.code === 'auth/invalid-email') {
-							alert('el correo no es valido!');
+							alert('el correo no es valido!')
 						}
 
-						console.error(error);
+						console.error(error)
 					})
-					alert('registrado en active power')
+				alert('registrado en active power')
 			}
-			alert('la contraseñas no coinciden')
-		}
+
 	}
 
 	return (
@@ -78,20 +79,12 @@ const Registro = ({ navigation }) => {
 			<Text style={styles.title2}>Active Power</Text>
 			<View style={styles.containerInput}>
 				<InputRegistro
-					icon='user'
-					title='Nombre de usuario'
-					value={user.nombre}
-					onChange={setNombre}
-					placeholder='nombre'
-					onChangeText = {(valor) => capInformacion('nombre', valor) }
-				/>
-				<InputRegistro
 					icon='mail3'
 					title='Correo electronico'
 					value={user.email}
 					onChange={setCorreo}
 					placeholder='Correo'
-					onChangeText = {(valor) => capInformacion('email', valor) }
+					onChangeText={valor => capInformacion('email', valor)}
 				/>
 				<InputRegistro
 					icon='lock'
@@ -100,8 +93,7 @@ const Registro = ({ navigation }) => {
 					onChange={setContraseña}
 					placeholder='Contraseña'
 					secureTextEntry={true}
-					onChangeText = {(valor) => capInformacion('pass', valor) }
-
+					onChangeText={valor => capInformacion('pass', valor)}
 				/>
 				<InputRegistro
 					icon='lock'
@@ -110,12 +102,11 @@ const Registro = ({ navigation }) => {
 					onChange={setRepContraseña}
 					placeholder='contraseña'
 					secureTextEntry={true}
-					onChangeText = {(valor) => capInformacion('passR', valor) }
-
+					onChangeText={valor => capInformacion('passR', valor)}
 				/>
 			</View>
 			{/* onPress={() => navigation.navigate('menu')} */}
-			<TouchableOpacity onPress = {() => registarUsuario()}>
+			<TouchableOpacity onPress={() => registarUsuario()}>
 				<LinearGradient colors={[colores.btn1, colores.btn2]} style={styles.boton}>
 					<Text style={styles.Text}>Registrar usuario</Text>
 				</LinearGradient>
@@ -123,7 +114,7 @@ const Registro = ({ navigation }) => {
 
 			<View>
 				<Text style={styles.text1}>¿ya tienes cuenta?</Text>
-				<TouchableOpacity>
+				<TouchableOpacity onPress={() => navigation.navigate('InicioSesion')}>
 					<Text style={styles.text2}>inicia sesion</Text>
 				</TouchableOpacity>
 			</View>

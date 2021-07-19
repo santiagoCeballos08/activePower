@@ -63,4 +63,6 @@ const InicioNavigator = props => {
 	)
 }
 
+const data=[]
+
 export default InicioNavigator
